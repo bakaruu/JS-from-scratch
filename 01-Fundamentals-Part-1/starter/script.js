@@ -6,7 +6,7 @@
 
 let country= "Spain"
 let continent = "Europe"
-let population = 45
+let population = 13
 
 console.log(country)
 console.log(continent)
@@ -83,3 +83,27 @@ let descriptionLiterals = `${country} is in ${continent} and its ${population} m
 console.log(descriptionLiterals)
 
 
+// Taking Decisions: if / else Statements﻿
+// If your country's population is greater than 33 million, log a string like this to the console: "Portugal's population is 22 million below average" (the 22 is the average of 33 minus the country's population).
+
+// After checking the result, change the population temporarily to 13 and then to 130. See the different results, and set the population back to original.
+
+
+if (population > 33) {
+    console.log(`${country}'s population is above average`);
+  } else {
+    console.log(
+      `${country}'s population is ${33 - population} million below average`
+    );
+  }
+
+
+console.log("TYPE CONVERSION AND COERCION")
+//   Type Conversion and Coercion﻿
+// Predict the result of these 5 operations without executing them:
+
+console.log('9' - '5'); // -> ?
+console.log('19' - '13' + '17'); // -> ?
+console.log('19' - '13' + 17); // -> ?
+console.log('123' < 57); // -> ?
+console.log(5 + 6 + '4' + 9 - 4 - 2); // -> ?
