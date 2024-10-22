@@ -187,7 +187,7 @@ let numNeighbours = prompt('How many neighbour countries does your contry have?'
 
 // Test the code with different values of numNeighbours, including 1 and 0.
 
-if (numNeighbours == 1) { // works cause coercion string to number
+if (numNeighbours === 1) { // works cause coercion string to number
   console.log('Only 1 border!')
 
 } else if (numNeighbours > 1) {
@@ -199,14 +199,14 @@ if (numNeighbours == 1) { // works cause coercion string to number
 // Change == to ===, and test the code again, with the same values of numNeighbours. Notice what happens when there is exactly 1 border! Why is this happening?
 
 // Finally, convert numNeighbours to a number, and watch what happens now when you input 1.
-let numNeighbours2 = Number(prompt('How many neighbour countries does your contry have?'))
+// let numNeighbours2 = Number(prompt('How many neighbour countries does your contry have?'))
 
-if (numNeighbours2 === 1) {
-  console.log('Only 1 border!')
+// if (numNeighbours2 === 1) {
+//   console.log('Only 1 border!')
 
-} else if (numNeighbours2 > 1) {
-  console.log('More than 1 border')
-} else {
-  console.log('No borders')
-}
+// } else if (numNeighbours2 > 1) {
+//   console.log('More than 1 border')
+// } else {
+//   console.log('No borders')
+// }
 // Reflect on why we should use the === operator and type conversion in this situation.
