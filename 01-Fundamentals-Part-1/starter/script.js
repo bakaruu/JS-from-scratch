@@ -4,7 +4,7 @@
 
 // Log their values to the console.
 
-let country= "Spain"
+let country = "Spain"
 let continent = "Europe"
 let population = 13
 
@@ -58,19 +58,19 @@ console.log(population)
 
 // Finland has a population of 6 million. Does your country have more people than Finland?
 let finlandPopulation = 6
-console.log(population>finlandPopulation)
+console.log(population > finlandPopulation)
 //or 
 
-console.log(population>6)
+console.log(population > 6)
 
 // The average population of a country is 33 million people. Does you country have less people than the average country?
 
-console.log(population>= 33)
+console.log(population >= 33)
 
 // Based on the variables you created, create a new variable description which contains a string with this format: 'Spain is in Europe, and its 45 million people speak spanish'.
 
 let description = country + " Is in " + continent
-+ " and its " + population + " million people speak " + language
+  + " and its " + population + " million people speak " + language
 
 console.log(description)
 
@@ -90,12 +90,12 @@ console.log(descriptionLiterals)
 
 
 if (population > 33) {
-    console.log(`${country}'s population is above average`);
-  } else {
-    console.log(
-      `${country}'s population is ${33 - population} million below average`
-    );
-  }
+  console.log(`${country}'s population is above average`);
+} else {
+  console.log(
+    `${country}'s population is ${33 - population} million below average`
+  );
+}
 
 
 console.log("TYPE CONVERSION AND COERCION")
@@ -117,7 +117,7 @@ console.log(String(23))
 console.log('i am' + 23 + ' years old')
 console.log('23' - '10' - 3) // minus operation triggers the opposite conversion
 
-let n = '1'+ 1
+let n = '1' + 1
 n = n - 1
 console.log(n) // = 10
 
@@ -140,17 +140,17 @@ console.log(Boolean(''))
 
 const money = 200
 
-if(money){
+if (money) {
   console.log("Don't spend it all ;")
-} else{
+} else {
   console.log('You should get a job!')
 }
 
 
 let height = 0
-if (height){
+if (height) {
   console.log('YAY! Height is defined')
-} else{
+} else {
   console.log('Height is UNDEFINED')
 }
 
@@ -175,8 +175,10 @@ null === undefined;  // false (because they are different types)
 
 
 // Declare a variable numNeighbours based on a prompt input like this:
-
 // prompt('How many neighbour countries does your contry have?');
+
+let numNeighbours = prompt('How many neighbour countries does your contry have?')
+
 // If there is only 1 neighbour, log to the console 'Only 1 border!' (use loose equality == for now).
 
 // Use an else-if block to log 'More than 1 border' in case numNeighbours is greater than 1.
@@ -185,8 +187,26 @@ null === undefined;  // false (because they are different types)
 
 // Test the code with different values of numNeighbours, including 1 and 0.
 
+if (numNeighbours == 1) { // works cause coercion string to number
+  console.log('Only 1 border!')
+
+} else if (numNeighbours > 1) {
+  console.log('More than 1 border')
+} else {
+  console.log('No borders')
+}
+
 // Change == to ===, and test the code again, with the same values of numNeighbours. Notice what happens when there is exactly 1 border! Why is this happening?
 
 // Finally, convert numNeighbours to a number, and watch what happens now when you input 1.
+let numNeighbours2 = Number(prompt('How many neighbour countries does your contry have?'))
 
+if (numNeighbours2 === 1) {
+  console.log('Only 1 border!')
+
+} else if (numNeighbours2 > 1) {
+  console.log('More than 1 border')
+} else {
+  console.log('No borders')
+}
 // Reflect on why we should use the === operator and type conversion in this situation.
