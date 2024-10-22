@@ -138,7 +138,7 @@ console.log(Boolean('Aru'))
 console.log(Boolean({}))
 console.log(Boolean(''))
 
-const money = 100
+const money = 200
 
 if(money){
   console.log("Don't spend it all ;")
@@ -156,6 +156,24 @@ if (height){
 
 
 // Equality Operators: == vs. ===﻿
+
+// ==
+// performs a loose comparison, meaning it checks if the values are equivalent after performing type coercion if necessary.
+
+5 == '5';  // true (because '5' is coerced to the number 5)
+true == 1;  // true (because true is coerced to 1)
+null == undefined;  // true (special case, both are considered loosely equal)
+
+
+// === strict comparison, meaning it checks for both value and type equality. No type conversion is done, so both the value and the type must be the same for the comparison to return true
+
+5 === '5';  // false (because 5 is a number and '5' is a string)
+true === 1;  // false (because true is a boolean and 1 is a number)
+null === undefined;  // false (because they are different types)
+
+
+
+
 // Declare a variable numNeighbours based on a prompt input like this:
 
 // prompt('How many neighbour countries does your contry have?');
