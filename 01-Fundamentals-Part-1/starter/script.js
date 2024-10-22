@@ -210,3 +210,56 @@ if (numNeighbours === 1) { // works cause coercion string to number
 //   console.log('No borders')
 // }
 // Reflect on why we should use the === operator and type conversion in this situation.
+
+
+console.log('Boolean Logic')
+//Boolean Logic
+
+console.log(true && true);  // true
+console.log(true && false); // false
+console.log(false && false); // false
+
+
+
+// Logical Operators﻿
+
+// && (AND): Both conditions must be true for the result to be true.
+// || (OR): At least one condition must be true for the result to be true.
+// ! (NOT): Inverts the boolean value (true becomes false, false becomes true).
+// Falsy values: 0, "", null, undefined, NaN, false.
+// Truthy values: Anything not falsy, including non-empty strings, objects, arrays, and non-zero numbers.
+
+// Let's say Sarah is looking for a new country to live in. She wants to live in a country that speaks English, has less than 50 million people and is not an island.
+
+// Write an if statement to help Sarah figure out if your country is right for her. You will need to write a condition that accounts for all of Sarah's criteria. Take your time with this, and check part of the solution if necessary.
+
+// If yours is the right country, log a strings like this 'You should live in Portugal :)'. If not, log 'Portugal does not meet your criteria :('.
+
+// Probably your country does not meet all the criteria. So go back and temporarily change some variables in order to make the condition true (unless you live in Canada :D).
+
+
+if (language === 'english' && population < 50 && !isIsland) {
+  console.log(`You should live in ${country} :)`);
+} else {
+  console.log(`${country} does not meet your criteria :(`);
+}
+//
+
+
+console.log('The switch statement')
+
+
+// The switch Statement﻿
+// Use a switch statement to log the following string for the given language:
+
+// chinese or mandarin: 'MOST number of native speakers!';
+
+// spanish: '2nd place in number of native speakers';
+
+// english: '3rd place';
+
+// hindi: 'Number 4';
+
+// arabic: '5th most spoken language';
+
+// for all other simply log 'Great language too :D'.
