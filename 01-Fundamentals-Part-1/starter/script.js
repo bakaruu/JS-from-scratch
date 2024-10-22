@@ -177,24 +177,24 @@ null === undefined;  // false (because they are different types)
 // Declare a variable numNeighbours based on a prompt input like this:
 // prompt('How many neighbour countries does your contry have?');
 
-let numNeighbours = prompt('How many neighbour countries does your contry have?')
+// let numNeighbours = prompt('How many neighbour countries does your contry have?')
 
-// If there is only 1 neighbour, log to the console 'Only 1 border!' (use loose equality == for now).
+// // If there is only 1 neighbour, log to the console 'Only 1 border!' (use loose equality == for now).
 
-// Use an else-if block to log 'More than 1 border' in case numNeighbours is greater than 1.
+// // Use an else-if block to log 'More than 1 border' in case numNeighbours is greater than 1.
 
-// Use an else block to log 'No borders' (this block will be executed when numNeighbours is 0 or any other value).
+// // Use an else block to log 'No borders' (this block will be executed when numNeighbours is 0 or any other value).
 
-// Test the code with different values of numNeighbours, including 1 and 0.
+// // Test the code with different values of numNeighbours, including 1 and 0.
 
-if (numNeighbours === 1) { // works cause coercion string to number
-  console.log('Only 1 border!')
+// if (numNeighbours === 1) { // works cause coercion string to number
+//   console.log('Only 1 border!')
 
-} else if (numNeighbours > 1) {
-  console.log('More than 1 border')
-} else {
-  console.log('No borders')
-}
+// } else if (numNeighbours > 1) {
+//   console.log('More than 1 border')
+// } else {
+//   console.log('No borders')
+// }
 
 // Change == to ===, and test the code again, with the same values of numNeighbours. Notice what happens when there is exactly 1 border! Why is this happening?
 
@@ -265,23 +265,51 @@ console.log('The switch statement')
 // for all other simply log 'Great language too :D'.
 
 
-switch (language) {
-  case 'chinese':
-  case 'mandarin':
-    console.log('MOST number of native speakers!');
-    break;
-  case 'spanish':
-    console.log('2nd place in number of native speakers');
-    break;
-  case 'english':
-    console.log('3rd place');
-    break;
-  case 'hindi':
-    console.log('Number 4');
-    break;
-  case 'arabic':
-    console.log('5th most spoken language');
-    break;
-  default:
-    console.log('Great language too :D');
+// switch (language) {
+//   case 'chinese':
+//   case 'mandarin':
+//     console.log('MOST number of native speakers!');
+//     break;
+//   case 'spanish':
+//     console.log('2nd place in number of native speakers');
+//     break;
+//   case 'english':
+//     console.log('3rd place');
+//     break;
+//   case 'hindi':
+//     console.log('Number 4');
+//     break;
+//   case 'arabic':
+//     console.log('5th most spoken language');
+//     break;
+//   default:
+//     console.log('Great language too :D');
+// }
+
+
+//The Conditional (Ternary) Operator﻿
+//examples
+const age = 14
+age >= 18 ? console.log('I like to drink wine') : console.log('I like to drink water')
+
+const drink = age >= 18 ? 'wine' : 'water'
+console.log(drink)
+
+let drink2
+
+if(age>=18){
+  drink2 = 'wine'
+}else {
+  drink2 = 'water'
 }
+
+console.log(`I like to drink ${age >= 18 ? 'wine' : 'water'}`);
+
+
+// If your country's population is greater than 33 million, use the ternary operator to log a string like this to the console: "Portugal's population is above average". Otherwise, simply log "Portugal's population is below average". Notice how only one word change between these two sentences!
+
+// After checking the result, change the population temporarily to 13 and then to 130. See the different results, and set the population back to original.
+
+
+console.log(`${country}'s population is ${population > 33 ?'above' : 'below'} average`
+);
