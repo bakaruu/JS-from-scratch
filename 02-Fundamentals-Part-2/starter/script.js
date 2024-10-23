@@ -67,7 +67,7 @@
 
 //Function declaration
 //Function declarations are hoisted, meaning they are available throughout the scope (even before they are defined in the code). This means we can call the function before it is defined in the code.
-function calcAge1(birthYear){
+function calcAge1(birthYear) {
 
     return 2024 - birthYear
 }
@@ -76,7 +76,7 @@ console.log(age1)
 
 //Function expression, anonymous function
 // Function expressions are not hoisted. This means you cannot call the function before it is defined in the code. It behaves just like any other variable, and the function is only available after the expression is evaluated.
-const calcAge2 = function (birthYear){
+const calcAge2 = function (birthYear) {
     return 2024 - birthYear
 }
 const age2 = calcAge1(1988)
@@ -93,17 +93,17 @@ console.log(age2)
 
 function percentageOfWorld1(population) {
     return (population / 7900) * 100;
- }
- 
- const percentageOfWorld2 = function (population) {
-   return (population / 7900) * 100;
- };
- 
- const percSpain = percentageOfWorld1(103);
- const percFrance = percentageOfWorld1(143);
- const percUk = percentageOfWorld1(233);
- 
- console.log(percSpain, percFrance, percUk);
+}
+
+const percentageOfWorld2 = function (population) {
+    return (population / 7900) * 100;
+};
+
+const percSpain = percentageOfWorld1(103);
+const percFrance = percentageOfWorld1(143);
+const percUk = percentageOfWorld1(233);
+
+console.log(percSpain, percFrance, percUk);
 
 
 
@@ -123,3 +123,8 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 console.log(yearsUntilRetirement(1991))
 
 // Recreate the last assignment, but this time create an arrow function called percentageOfWorld3.
+
+const perfentageOfWorld3 = population => (population / 7900) * 100
+
+
+console.log(percSpain, percFrance, percUk);
