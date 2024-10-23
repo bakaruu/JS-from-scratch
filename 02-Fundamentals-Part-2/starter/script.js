@@ -104,3 +104,22 @@ function percentageOfWorld1(population) {
  const percUk = percentageOfWorld1(233);
  
  console.log(percSpain, percFrance, percUk);
+
+
+
+//  Arrow Functions﻿
+
+const calcAge3 = birthYear => 2036 - birthYear
+const age3 = calcAge3(1991)
+console.log(age3)
+
+//with multiples arguments
+const yearsUntilRetirement = (birthYear, firstName) => {
+    const age = 2037 - birthYear
+    const retirement = 65 - age
+    return `${firstName} retires in ${retirement} years`
+}
+
+console.log(yearsUntilRetirement(1991))
+
+// Recreate the last assignment, but this time create an arrow function called percentageOfWorld3.
