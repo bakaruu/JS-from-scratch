@@ -128,3 +128,30 @@ const perfentageOfWorld3 = population => (population / 7900) * 100
 
 
 console.log(percSpain, percFrance, percUk);
+
+
+// Functions Calling Other Functions﻿
+
+const cutPieces = function(fruit){
+    return fruit * 4
+}
+
+const fruitProcessor = function(apples, oranges) {
+
+    const applePieces = cutPieces(apples)
+    const orangePieces = cutPieces(oranges)
+
+    
+    const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges`
+
+    return juice
+}
+
+console.log(fruitProcessor(2,3))
+
+
+// Create a function called describePopulation. Use the function type you like the most. This function takes in two arguments: country and population, and returns a strings like this: 'China has 1441 million people, which is about 18.2% of the world'.
+
+// To calculate the percentage, describePopulation calls the percentageOfWorld1 you created earlier.
+
+// Call describePopulation with data for 3 countries of your choice.
