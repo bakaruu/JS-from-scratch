@@ -155,3 +155,13 @@ console.log(fruitProcessor(2,3))
 // To calculate the percentage, describePopulation calls the percentageOfWorld1 you created earlier.
 
 // Call describePopulation with data for 3 countries of your choice.
+
+const describePopulation = function(country, population) {
+    const percentage = percentageOfWorld1(population);
+    const description = `${country} has ${population} million people, which is about ${percentage}% of the world.`;
+    console.log(description);
+  };
+  
+  describePopulation('Portugal', 10);
+  describePopulation('China', 1441);
+  describePopulation('USA', 332);
