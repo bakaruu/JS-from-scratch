@@ -186,3 +186,44 @@ function checkWinner(avgDolphins, avgKoalas) {
 }
 
 checkWinner(scoreDolphins, scoreKoalas);
+
+
+
+// Introduction to Arrays﻿
+
+const friend1 = 'Michael'
+const friend2 = 'Steven'
+const friend3 = 'Peter'
+
+//literal sintax
+const friends = ['Michael', 'Steven', 'Peter']
+console.log(friends)
+
+const years = new Array(1991, 1212, 12222, 1222)
+
+console.log(friends[0])
+console.log(friends[2])
+console.log(friends.length)
+console.log(friends[friends.length -1])// any position we want to show, we can use expressions which produces a value, js expect an expression, not an statement.
+
+friends[2] = 'Example we can change the arrays'
+console.log(friends)
+
+//friends = ['Bob', 'Alice'], this cant be.
+
+
+//Exercise
+const calcAge = function (birthYear) {
+    return 2024 - birthYear
+}
+
+const years2 = [1990, 1967, 2002, 2010, 2018]
+
+
+
+
+// Create an array containing 4 population values of 4 countries of your choice. You may use the values you have been using previously. Store this array into a variable called populations.
+
+// Log to the console whether the array has 4 elements or not (true or false).
+
+// Create an array called percentages containing the percentages of the world population for these 4 population values. Use the function percentageOfWorld1 that you created earlier to compute the 4 percentage values.
