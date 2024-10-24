@@ -253,8 +253,19 @@ console.log(percentages)
 
 // Basic Array Operations (Methods)﻿
 
+const friends2 = ['Michael', 'Steven', 'Peter']
+//.push add elements to the array
+friends2.push('Murdok')
+console.log(friends2)
+
+//.unshift is used to add one or more elements to the beginning of an array
+friends2.unshift('Murdok')
+console.log(friends2)
 
 
+//remove the last element of an Array
+friends2.pop()
+console.log(friends2)
 
 // Create an array containing all the neighbouring countries of a country of your choice. Choose a country which has at least 2 or 3 neighbours. Store the array into a variable called neighbours.
 
