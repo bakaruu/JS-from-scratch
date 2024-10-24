@@ -267,6 +267,51 @@ console.log(friends2)
 friends2.pop()
 console.log(friends2)
 
+// used to remove the first element from an array
+friends2.shift()
+console.log(friends2)
+
+
+console.log(friends2.indexOf('Michael'))
+
+friends2.push(23)
+console.log(friends2.includes('Steven'))
+console.log(friends2.includes('Bob'))
+
+if(friends2.includes('Peter')){
+    console.log('You have a friend called Peter')
+}
+
+
+//CHALLENGE #2
+/* Write your code below. Good luck! 🙂 */
+
+function calcTip(bill){
+    if(bill>50 && bill <300){
+        const tip = (bill * 15) / 100;
+
+        return tip
+    }else{
+        const tip = (bill * 20) / 100;
+
+        return tip
+    }
+    
+}
+
+console.log(calcTip(100))
+
+const bills = [125, 555, 44]
+
+const tips = new Array(calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2]))
+
+console.log(tips)
+
+const totals = new Array(bills[0]+ tips[0], bills[1]+tips[1], bills[2]+tips[2])
+console.log(totals)
+
+
+
 // Create an array containing all the neighbouring countries of a country of your choice. Choose a country which has at least 2 or 3 neighbours. Store the array into a variable called neighbours.
 
 // At some point, a new country called 'Utopia' is created in the neighbourhood of your selected country, so add it to the end of the neighbours array.
@@ -276,3 +321,18 @@ console.log(friends2)
 // If the neighbours array does not include the country 'Germany', log to the console: 'Probably not a central european country :D'.
 
 // Change the name of one of your neighbouring countries. To do that, find the index of the country in the neighbours array, and then use that index to change the array at that index position. For example, you can search for 'Sweden' in the array, and then replace it with 'Republic of Sweden'.
+
+const neighbours = ['Norway', 'Sweden', 'Russia'];
+
+neighbours.push('Utopia');
+console.log(neighbours);
+
+neighbours.pop();
+console.log(neighbours);
+
+if (!neighbours.includes('Germany')) {
+  console.log('Probably not a central European country :D');
+}
+
+neighbours[neighbours.indexOf('Sweden')] = 'Republic of Sweden;';
+console.log(neighbours);
