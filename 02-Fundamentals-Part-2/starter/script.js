@@ -132,22 +132,22 @@ console.log(percSpain, percFrance, percUk);
 
 // Functions Calling Other Functions﻿
 
-const cutPieces = function(fruit){
+const cutPieces = function (fruit) {
     return fruit * 4
 }
 
-const fruitProcessor = function(apples, oranges) {
+const fruitProcessor = function (apples, oranges) {
 
     const applePieces = cutPieces(apples)
     const orangePieces = cutPieces(oranges)
 
-    
+
     const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges`
 
     return juice
 }
 
-console.log(fruitProcessor(2,3))
+console.log(fruitProcessor(2, 3))
 
 
 // Create a function called describePopulation. Use the function type you like the most. This function takes in two arguments: country and population, and returns a strings like this: 'China has 1441 million people, which is about 18.2% of the world'.
@@ -156,15 +156,15 @@ console.log(fruitProcessor(2,3))
 
 // Call describePopulation with data for 3 countries of your choice.
 
-const describePopulation = function(country, population) {
+const describePopulation = function (country, population) {
     const percentage = percentageOfWorld1(population);
     const description = `${country} has ${population} million people, which is about ${percentage}% of the world.`;
     console.log(description);
-  };
-  
-  describePopulation('Portugal', 10);
-  describePopulation('China', 1441);
-  describePopulation('USA', 332);
+};
+
+describePopulation('Portugal', 10);
+describePopulation('China', 1441);
+describePopulation('USA', 332);
 
 
 //challenge #1
@@ -204,7 +204,7 @@ const years = new Array(1991, 1212, 12222, 1222)
 console.log(friends[0])
 console.log(friends[2])
 console.log(friends.length)
-console.log(friends[friends.length -1])// any position we want to show, we can use expressions which produces a value, js expect an expression, not an statement.
+console.log(friends[friends.length - 1])// any position we want to show, we can use expressions which produces a value, js expect an expression, not an statement.
 
 friends[2] = 'Example we can change the arrays'
 console.log(friends)
@@ -219,7 +219,13 @@ const calcAge = function (birthYear) {
 
 const years2 = [1990, 1967, 2002, 2010, 2018]
 
+const age = calcAge(years2[0])
+const age22 = calcAge(years2[1])
+const age33 = calcAge(years2[years2.length - 1])
+console.log(age, age22, age33)
 
+//we can use expressions.Calling functions inside an Array
+const ages = [calcAge(years2[0]), calcAge(years2[1]), calcAge(years2[years2.length - 1])]
 
 
 // Create an array containing 4 population values of 4 countries of your choice. You may use the values you have been using previously. Store this array into a variable called populations.
@@ -227,3 +233,13 @@ const years2 = [1990, 1967, 2002, 2010, 2018]
 // Log to the console whether the array has 4 elements or not (true or false).
 
 // Create an array called percentages containing the percentages of the world population for these 4 population values. Use the function percentageOfWorld1 that you created earlier to compute the 4 percentage values.
+
+
+const populations = [12, 14, 33, 22]
+
+console.log(populations.length === 4)
+
+const percentages = [percentageOfWorld1(populations[0]),               percentageOfWorld1(populations[1]),               percentageOfWorld1(populations[2]),               percentageOfWorld1(populations[3])]
+
+
+console.log(percentages)
