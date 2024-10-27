@@ -401,22 +401,26 @@ const myCountry = {
 const jonas = {
     firstName: 'Jonas',    
     lastName: 'Perez',
-    age: 1991,
+    birthYear: 1991,
     job: 'teacher',
     friends: ['Mike', 'Lau'],
 
-    calcAge: function(){
-        return 2037 - this.age;
+    
+
+    calcAgeBetter: function(){
+        this.age = 2037 - this.birthYear
+        return this.age
     },
+
+    
 
     showInfo: function(){
         return `${this.firstName}\n${this.lastName}`;
     },
 }
 
-console.log(jonas.showInfo());
-console.log(jonas.calcAge());
-console.log(jonas['calcAge']());
+jonas.calcAgeBetter();
+console.log(jonas.age);
 
 
 
