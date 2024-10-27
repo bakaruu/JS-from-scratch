@@ -383,12 +383,22 @@ console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his bes
   
 //   Increase the country's population by two million using dot notation, and then decrease it by two million using bracket notation.
 
-// console.log(
-//     `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`
-//   );
+console.log(
+    `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`
+  );
   
-//   myCountry.population += 2;
-//   console.log(myCountry.population);
+  myCountry.population += 2;
+  console.log(myCountry.population);
   
-//   myCountry['population'] -= 2;
-//   console.log(myCountry.population);
+  myCountry['population'] -= 2;
+  console.log(myCountry.population);
+
+
+
+//   Object Methods﻿
+
+//   Add a method called describe to the myCountry object. This method will log a string to the console, similar to the string logged in the previous assignment, but this time using the 'this' keyword.
+  
+//   Call the describe method.
+  
+//   Add a method called checkIsland to the myCountry object. This method will set a new property on the object, called isIsland. isIsland will be true if there are no neighbouring countries, and false if there are. Use the ternary operator to set the property.
