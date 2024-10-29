@@ -412,6 +412,10 @@ const jonas = {
         return this.age
     },
 
+    getSummary: function(){
+
+    },
+
     
 
     showInfo: function(){
@@ -421,6 +425,8 @@ const jonas = {
 
 jonas.calcAgeBetter();
 console.log(jonas.age);
+
+console.log(jonas.getSummary())
 
 
 
