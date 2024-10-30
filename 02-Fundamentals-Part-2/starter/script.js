@@ -404,6 +404,7 @@ const jonas = {
     birthYear: 1991,
     job: 'teacher',
     friends: ['Mike', 'Lau'],
+    hasDriverLicense: true,
 
     
 
@@ -413,7 +414,7 @@ const jonas = {
     },
 
     getSummary: function(){
-
+        return `${this.firstName} is a ${this.calcAgeBetter()}-year old ${jonas.job}, and he has ${this.hasDriverLicense ? 'a' : 'no'} driver's license.`
     },
 
     
@@ -456,7 +457,7 @@ const myCountry2 = {
     }
   };
   
-  myCountry.describe();
-  myCountry.checkIsland();
+  myCountry2.describe();
+  myCountry2.checkIsland();
   
   console.log(myCountry2);
