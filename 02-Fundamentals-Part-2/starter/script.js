@@ -585,3 +585,48 @@ for (let i = 0; i < populations2.length; i++) {
 }
 
 console.log(percentages2);
+
+
+
+// Looping Backwards and Loops in Loops﻿
+
+const jonasArray2 = [
+    'Jonas',
+    'Perez',
+    2037 - 1992,
+    'teacher',
+    ['Mike', 'Peter', 'Ana']
+]
+
+
+// 0, 1, .... 4
+// 4, 3, .... 0
+
+for (let i = jonasArray2.length -1; i>= 0; i --){
+    console.log(i, jonasArray2[i])
+}
+
+// loops in loops
+
+for (let exercise = 1; exercise < 4; exercise++){
+    console.log(`---- STARTING EXERCISE ${exercise} ----`)
+
+    for(let rep = 1; rep < 6; rep++){
+        console.log(`Lifting weight repetition ${rep}`)
+    }
+}
+// Store this array of arrays into a variable called listOfNeighbours:
+
+// [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
+// Log only the neighbouring countries to the console, one by one, not the entire arrays. Log a string like 'Neighbour: Canada' for each country.
+
+// You will need a loop inside a loop for this. This is actually a bit tricky, so don't worry if it's too difficult for you! But you can still try to figure this out anyway 😉
+
+
+const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'],
+  ['Norway', 'Sweden', 'Russia']
+];
+
+for (let i = 0; i < listOfNeighbours.length; i++)
+  for (let y = 0; y < listOfNeighbours[i].length; y++)
+    console.log(`Neighbour: ${listOfNeighbours[i][y]}`);
