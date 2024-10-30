@@ -627,6 +627,24 @@ const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'],
   ['Norway', 'Sweden', 'Russia']
 ];
 
-for (let i = 0; i < listOfNeighbours.length; i++)
-  for (let y = 0; y < listOfNeighbours[i].length; y++)
-    console.log(`Neighbour: ${listOfNeighbours[i][y]}`);
+for (let i = 0; i < listOfNeighbours.length; i++){
+
+    console.log(`---- Round ${i+1} ----`)
+    for (let y = 0; y < listOfNeighbours[i].length; y++)
+      console.log(`Neighbour: ${listOfNeighbours[i][y]}`);
+
+}
+   
+
+
+
+// The while Loop﻿
+let rep = 1
+while ( rep <= 10){
+    console.log(`While example rep ${rep}`)
+    rep++
+}
+
+// Recreate the challenge from the lecture Looping Arrays, Breaking and Continuing, but this time using a while loop (call the array percentages3).
+
+// Reflect on what solution you like better for this task: the for loop or the while loop?
