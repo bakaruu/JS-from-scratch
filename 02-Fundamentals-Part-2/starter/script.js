@@ -461,3 +461,45 @@ const myCountry2 = {
   myCountry2.checkIsland();
   
   console.log(myCountry2);
+
+
+  //#CHALLENGE #3
+  /* Write your code below. Good luck! 🙂 */
+
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    bmi:0,
+    
+    calcBMI: function(){
+       this.bmi = this.mass / (this.height * this.height)
+       return this.bmi
+        
+    }
+}
+
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    bmi: 0,
+    
+    calcBMI: function(){
+        this.bmi = this.mass / (this.height * this.height)
+        return this.bmi
+        
+    }
+}
+
+john.calcBMI()
+mark.calcBMI()
+
+if(john.bmi > mark.bmi){
+    console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})`)
+}else{
+    console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})`)
+}
+
+
+
