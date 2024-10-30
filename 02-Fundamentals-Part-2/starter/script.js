@@ -240,9 +240,9 @@ const populations = [12, 14, 33, 22]
 console.log(populations.length === 4)
 
 const percentages = [percentageOfWorld1(populations[0]),
-                    percentageOfWorld1(populations[1]), 
-                    percentageOfWorld1(populations[2]), 
-                    percentageOfWorld1(populations[3])]
+percentageOfWorld1(populations[1]),
+percentageOfWorld1(populations[2]),
+percentageOfWorld1(populations[3])]
 
 
 
@@ -278,7 +278,7 @@ friends2.push(23)
 console.log(friends2.includes('Steven'))
 console.log(friends2.includes('Bob'))
 
-if(friends2.includes('Peter')){
+if (friends2.includes('Peter')) {
     console.log('You have a friend called Peter')
 }
 
@@ -286,17 +286,17 @@ if(friends2.includes('Peter')){
 //CHALLENGE #2
 /* Write your code below. Good luck! 🙂 */
 
-function calcTip(bill){
-    if(bill>50 && bill <300){
+function calcTip(bill) {
+    if (bill > 50 && bill < 300) {
         const tip = (bill * 15) / 100;
 
         return tip
-    }else{
+    } else {
         const tip = (bill * 20) / 100;
 
         return tip
     }
-    
+
 }
 
 console.log(calcTip(100))
@@ -307,7 +307,7 @@ const tips = new Array(calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2]))
 
 console.log(tips)
 
-const totals = new Array(bills[0]+ tips[0], bills[1]+tips[1], bills[2]+tips[2])
+const totals = new Array(bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2])
 console.log(totals)
 
 
@@ -331,7 +331,7 @@ neighbours.pop();
 console.log(neighbours);
 
 if (!neighbours.includes('Germany')) {
-  console.log('Probably not a central European country :D');
+    console.log('Probably not a central European country :D');
 }
 
 neighbours[neighbours.indexOf('Sweden')] = 'Republic of Sweden;';
@@ -347,7 +347,7 @@ const myCountry = {
     language: 'finnish',
     population: 6,
     neighbours: ['Norway', 'Sweden', 'Russia']
-  };
+};
 
 
 // // Dot vs. Bracket Notation﻿
@@ -380,16 +380,16 @@ const myCountry = {
 
 
 // //   Using the object from the previous assignment, log a string like this to the console: 'Finland has 6 million finnish-speaking people, 3 neighbouring countries and a capital called Helsinki'.
-  
+
 // //   Increase the country's population by two million using dot notation, and then decrease it by two million using bracket notation.
 
 // console.log(
 //     `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`
 //   );
-  
+
 //   myCountry.population += 2;
 //   console.log(myCountry.population);
-  
+
 //   myCountry['population'] -= 2;
 //   console.log(myCountry.population);
 
@@ -397,29 +397,29 @@ const myCountry = {
 
 //   Object Methods﻿
 
-  
+
 const jonas = {
-    firstName: 'Jonas',    
+    firstName: 'Jonas',
     lastName: 'Perez',
     birthYear: 1991,
     job: 'teacher',
     friends: ['Mike', 'Lau'],
     hasDriverLicense: true,
 
-    
 
-    calcAgeBetter: function(){
+
+    calcAgeBetter: function () {
         this.age = 2037 - this.birthYear
         return this.age
     },
 
-    getSummary: function(){
+    getSummary: function () {
         return `${this.firstName} is a ${this.calcAgeBetter()}-year old ${jonas.job}, and he has ${this.hasDriverLicense ? 'a' : 'no'} driver's license.`
     },
 
-    
 
-    showInfo: function(){
+
+    showInfo: function () {
         return `${this.firstName}\n${this.lastName}`;
     },
 }
@@ -432,9 +432,9 @@ console.log(jonas.getSummary())
 
 
 //   Add a method called describe to the myCountry object. This method will log a string to the console, similar to the string logged in the previous assignment, but this time using the 'this' keyword.
-  
+
 //   Call the describe method.
-  
+
 //   Add a method called checkIsland to the myCountry object. This method will set a new property on the object, called isIsland. isIsland will be true if there are no neighbouring countries, and false if there are. Use the ternary operator to set the property.
 
 
@@ -444,38 +444,38 @@ const myCountry2 = {
     language: 'finnish',
     population: 6,
     neighbours: ['Norway', 'Sweden', 'Russia'],
-    describe: function() {
-      console.log(
-        `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`
-      );
+    describe: function () {
+        console.log(
+            `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`
+        );
     },
-    checkIsland: function() {
-      this.isIsland = this.neighbours.length === 0 ? true : false;
-  
-      // Even simpler version (see why this works...)
-      // this.isIsland = !Boolean(this.neighbours.length);
+    checkIsland: function () {
+        this.isIsland = this.neighbours.length === 0 ? true : false;
+
+        // Even simpler version 
+        // this.isIsland = !Boolean(this.neighbours.length);
     }
-  };
-  
-  myCountry2.describe();
-  myCountry2.checkIsland();
-  
-  console.log(myCountry2);
+};
+
+myCountry2.describe();
+myCountry2.checkIsland();
+
+console.log(myCountry2);
 
 
-  //#CHALLENGE #3
-  /* Write your code below. Good luck! 🙂 */
+//#CHALLENGE #3
+/* Write your code below. Good luck! 🙂 */
 
 const mark = {
     fullName: 'Mark Miller',
     mass: 78,
     height: 1.69,
-    bmi:0,
-    
-    calcBMI: function(){
-       this.bmi = this.mass / (this.height * this.height)
-       return this.bmi
-        
+    bmi: 0,
+
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height)
+        return this.bmi
+
     }
 }
 
@@ -484,24 +484,43 @@ const john = {
     mass: 92,
     height: 1.95,
     bmi: 0,
-    
-    calcBMI: function(){
+
+    calcBMI: function () {
         this.bmi = this.mass / (this.height * this.height)
         return this.bmi
-        
+
     }
 }
 
 john.calcBMI()
 mark.calcBMI()
 
-if(john.bmi > mark.bmi){
+if (john.bmi > mark.bmi) {
     console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})`)
-}else{
+} else {
     console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})`)
 }
 
 
 
 // Iteration: The for Loop﻿
+
+// Examples
+
+console.log('Lifting weights repetition 1')
+console.log('Lifting weights repetition 2')
+console.log('Lifting weights repetition 3')
+console.log('Lifting weights repetition 4')
+console.log('Lifting weights repetition 5')
+console.log('Lifting weights repetition 6')
+console.log('Lifting weights repetition 7')//don't repeat yourself principle.
+
+for (let i = 1; i <= 10; i++){
+    console.log(`Lifting weights repetition ${i}`)
+}
+
+
 // There are elections in your country! in a small town, there are only 50 voters. Use a for loop to simulate the 50 people voting, by logging a string like this to the console (for numbers 1 to 50): 'Voter number 1 is currently voting'.
+
+for (let voter = 1; voter <= 50; voter++)
+    console.log(`Voter number ${voter} is currently voting`);
