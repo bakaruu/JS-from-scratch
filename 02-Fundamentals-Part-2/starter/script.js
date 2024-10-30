@@ -515,7 +515,7 @@ console.log('Lifting weights repetition 5')
 console.log('Lifting weights repetition 6')
 console.log('Lifting weights repetition 7')//don't repeat yourself principle.
 
-for (let i = 1; i <= 10; i++){
+for (let i = 1; i <= 10; i++) {
     console.log(`Lifting weights repetition ${i}`)
 }
 
@@ -528,8 +528,60 @@ for (let voter = 1; voter <= 50; voter++)
 
 // Looping Arrays, Breaking and Continuing﻿
 
+const jonasArray = [
+    'Jonas',
+    'Perez',
+    2037 - 1992,
+    'teacher',
+    ['Mike', 'Peter', 'Ana']
+]
+
+const types = []
+
+for (let i = 0; i < jonasArray.length; i++) {
+    console.log(jonasArray[i], typeof jonasArray[i])
+
+    types[i] = typeof jonasArray[i]
+    // types.push(typeof jonasArray[i]) //another way
+}
+
+console.log(types)
+
+
+// continue and break
+console.log('---- ONLY STRINGS ----')
+
+for (let i = 0; i < jonasArray.length; i++) {
+    if(typeof jonasArray[i] !== 'string') continue;
+
+    console.log(jonasArray[i], typeof jonasArray[i]);
+
+}
+
+
+console.log('---- BREAK WITH NUMBER ----')
+
+for (let i = 0; i < jonasArray.length; i++) {
+    if(typeof jonasArray[i] === 'number') break;
+
+    console.log(jonasArray[i], typeof jonasArray[i]);
+
+}
+
+
+
 // Let's bring back the populations array from a previous assignment.
 
 // Use a for loop to compute an array called percentages2 containing the percentages of the world population for the 4 population values. Use the function percentageWOrld1 that you created earlier.
 
 // Confirm that percentages2 contains exactly the same values as the percentages array that we created manually in the previous assignment, and reflect on how much better this solution is.
+
+const populations2 = [10, 1441, 332, 83];
+const percentages2 = [];
+
+for (let i = 0; i < populations2.length; i++) {
+  const perc = percentageOfWorld1(populations2[i]);
+  percentages2.push(perc);
+}
+
+console.log(percentages2);
