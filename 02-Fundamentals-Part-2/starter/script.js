@@ -653,7 +653,7 @@ while (dice !== 6) {
     console.log(`You rolled a ${dice}`)
     dice = Math.trunc(Math.random() * 6) + 1
 
-    if ( dice === 6) console.log('Loop is about to end...')
+    if (dice === 6) console.log('Loop is about to end...')
 }
 
 // Recreate the challenge from the lecture Looping Arrays, Breaking and Continuing, but this time using a while loop (call the array percentages3).
@@ -665,9 +665,45 @@ const percentages3 = [];
 
 let i = 0;
 while (i < populations.length) {
-  const perc = percentageOfWorld1(populations[i]);
-  percentages3.push(perc);
-  i++;
+    const perc = percentageOfWorld1(populations[i]);
+    percentages3.push(perc);
+    i++;
 }
 
 console.log(percentages3);
+
+
+// CHALLENGE #4
+
+
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+
+const calcAverage2 = function (arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum = sum + arr[i];
+    }
+
+    return sum / arr.length;
+}
+
+
+const bills2 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips2 = [];
+const totals2 = [];
+
+for (let i = 0; i < bills2.length; i++) {
+
+    tips2[i] = calcTip(bills2[i])
+    totals2[i] = tips2[i] + bills2[i]
+}
+
+console.log(totals2)
+console.log(calcAverage(totals2))
+
+
+
+
+
