@@ -701,7 +701,7 @@ for (let i = 0; i < bills2.length; i++) {
 }
 
 console.log(totals2)
-console.log(calcAverage(totals2))
+console.log(calcAverage2(totals2))
 
 
 
