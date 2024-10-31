@@ -28,6 +28,7 @@ const calcTempAmplitude = function (temps) {
         const currentTemp = temps[i]
         if (typeof currentTemp !== 'number') continue;
 
+        //debugger opens the debugger window directly
         if (currentTemp > max) max = currentTemp
 
         if (currentTemp < min) min = currentTemp
