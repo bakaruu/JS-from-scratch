@@ -81,6 +81,10 @@ h1 {
   top: 2rem;
   left: 2rem;
 }
+.Hscore{
+  position: absolute;
+  top: 75rem;
+}
 
 .guess {
   background: none;
