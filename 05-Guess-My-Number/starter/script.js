@@ -31,84 +31,83 @@ checkButton.disabled = false;
 
 console.log(randomNumber);
 
+//display messages
+const displayMessage = function (message) {
+    document.querySelector('.message').textContent = message
+}
+const displayScore = function (message) {
+    document.querySelector('.score').textContent = message
+}
 
+const displayHighScore = function (highScore) {
+    document.querySelector('.highscore').textContent = highScore;
+};
+
+const displayNumber = function (number) {
+    document.querySelector('.number').textContent = number;
+};
+
+const setBodyStyle = function (bgColor, width = '15rem') {
+    document.querySelector('body').style.backgroundColor = bgColor;
+    document.querySelector('.number').style.width = width;
+};
+
+
+// To reset and start a new game, highest score remains
 document.querySelector('.again').addEventListener('click', function () {
     // location.reload();// to reload everything
-    score = 20
-    randomNumber = Math.floor(Math.random() * 20) + 1
-    document.querySelector('.message').textContent = 'Start guessing...'
-    document.querySelector('.score').textContent = score
-    document.querySelector('.number').textContent = '?'
-    document.querySelector('.guess').textContent = ''
-    document.querySelector('body').style.backgroundColor= '#222'
-    document.querySelector('.number').style.width = '15rem'
+    score = 20;
+    randomNumber = Math.floor(Math.random() * 20) + 1;
+    displayMessage('Start guessing...');
+    displayScore(score);
+    displayNumber('?');
+    guessInput.value = '';
     guessInput.disabled = false;
     checkButton.disabled = false;
+    setBodyStyle('#222');
 
 
 });
 
-document.querySelector('.Hscore').addEventListener('click', function(){
-    document.querySelector('.highscore').textContent = 0
-
+document.querySelector('.Hscore').addEventListener('click', function () {
+    displayHighScore(0)
 })
 
 
 document.querySelector('.check').addEventListener('click', function () {
     const guess = Number(document.querySelector('.guess').value);
 
-
-
     // When there is no input
     if (!guess) {
-        document.querySelector('.message').textContent = '⛔ No number'
+        // document.querySelector('.message').textContent = '⛔ No number'
+        displayMessage('⛔ No number')
 
         // When the player wins
     } else if (guess === randomNumber) {
-        document.querySelector('.message').textContent = '🎉 Correct Number !'
-        document.querySelector('.number').textContent = randomNumber
+        displayMessage('🎉 Correct Number!');
+        displayNumber(randomNumber);
         guessInput.disabled = true;
-        highScore = score
-        document.querySelector('.highscore').textContent = highScore
-        
-
-        //too change things from CSS select the whole body and the class
-        document.querySelector('body').style.backgroundColor = '#14802b'
-        document.querySelector('.number').style.width = '30rem'
-
         checkButton.disabled = true;
+        highScore = Math.max(score, highScore);
+        displayHighScore(highScore);
+        setBodyStyle('#14802b', '30rem');
 
         //When the number is greater than actual number
-    } else if (guess > randomNumber) {
-
+    } else if (guess !== randomNumber) {
         if (score > 1) {
-            document.querySelector('.message').textContent = '📈 Too high'
+            displayMessage(guess > randomNumber ? '📈 Too high' : '📉 Too low');
             score--;
-            document.querySelector('.score').textContent = score;
-
+            displayScore(score);
         } else {
-            document.querySelector('.message').textContent = 'YOU LOST'
+            displayMessage('💀 YOU LOST!');
+            displayScore(0);
             guessInput.disabled = true;
-            document.querySelector('.score').textContent = 0;
-            document.querySelector('body').style.backgroundColor = '#901414'
+            setBodyStyle('#901414');
         }
-        //When the number is lower than actual number
-    } else if (guess < randomNumber) {
-        if (score > 1) {
-            document.querySelector('.message').textContent = '📉 Too low'
-            score--;
-            document.querySelector('.score').textContent = score;
 
-        } else {
-            document.querySelector('.message').textContent = 'YOU LOST'
-
-            guessInput.disabled = true;
-            document.querySelector('.score').textContent = 0;
-            document.querySelector('body').style.backgroundColor = '#901414'
-        }
-        //When the number is wrong
     } else {
-        document.querySelector('.message').textContent = '💀    Wrong number'
+        // document.querySelector('.message').textContent = '💀    Wrong number'
+        displayMessage('💀 Wrong number')
     }
 
 })
