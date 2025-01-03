@@ -15,6 +15,9 @@ score1El.textContent = 0;
 diceEl.classList.add('hidden')
 
 
+//meeeeeeeeeh
+
+
 
 
 
