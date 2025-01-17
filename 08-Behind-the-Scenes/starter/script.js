@@ -81,3 +81,33 @@ var numProducts = 10
 function deleteShoppingCart(){
     console.log('All products deleted!')
 }
+
+//Another example
+
+var x = 1
+let y = 2
+const z = 3
+
+//var creates a property on the global window object
+console.log(x === window.x)//true
+console.log(y === window.x)//false
+console.log(z === window.x)//false
+
+
+// Tamaño de la ventana
+console.log(window.innerWidth); // Ancho de la ventana
+console.log(window.innerHeight); // Altura de la ventana
+
+// Navegación en el historial
+window.history.back(); // Volver a la página anterior
+window.history.forward(); // Avanzar en el historial
+
+// URL y ubicación
+console.log(window.location.href); // URL completa actual
+window.location.reload(); // Recargar la página
+
+// Abrir y cerrar ventanas
+const myWindow = window.open('https://example.com', '_blank'); // Abrir nueva ventana
+myWindow.close(); // Cerrar la ventana abierta
+
+
