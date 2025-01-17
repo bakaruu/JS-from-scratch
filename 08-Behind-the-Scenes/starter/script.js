@@ -116,26 +116,43 @@
 //this keyword/variable is a special variable that is created for every execution context(every function). Takes the value of (points to) the "owner" of the function in which the this keyword is used. Is not static.
 
 
-console.log(this)
+// console.log(this)
+
+// const jonas = {
+//     year: 1991,
+//     calcAge: function(){
+//         console.log(this.year -1000)
+//     }
+// }
+
+// jonas.calcAge()
+// const matilda = {
+//     year: 2018
+// }
+
+// //methods borrow.
+// matilda.calcAge = jonas.calcAge
+
+// matilda.calcAge() 
+
+
+// const f = jonas.calcAge;
+// //cannot read property year.
+// f()
+
 
 const jonas = {
+    firstName: 'Jonas',
     year: 1991,
-    calcAge: function(){
-        console.log(this.year -1000)
-    }
+    calcAge: function () {
+        console.log(this)
+        console.log(2037 - this.year)
+    },
+
+    //never ever use an arrow function as a method hehe.
+    greet: () => console.log(`Hey ${this.firstName}`),
+
 }
 
-jonas.calcAge()
-const matilda = {
-    year: 2018
-}
 
-//methods borrow.
-matilda.calcAge = jonas.calcAge
-
-matilda.calcAge() 
-
-
-const f = jonas.calcAge;
-//cannot read property year.
-f()
+jonas.greet()
