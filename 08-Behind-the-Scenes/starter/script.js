@@ -174,3 +174,20 @@ const jonas = {
   };
   jonas.greet();
   jonas.calcAge();
+
+  //Object References in Practice (Shallow vs. Deep Copies)
+
+  const jessica = {
+    firstName: 'jessica',
+    lastName: 'Williams',
+    age: 27
+  }
+
+
+  const marriedJessica = jessica
+  marriedJessica.lastName = 'Davis'
+
+  console.log('Before', jessica)
+  console.log('After', marriedJessica)
+
+  //we copy the reference of the object, we dont create a new one on the heap.
