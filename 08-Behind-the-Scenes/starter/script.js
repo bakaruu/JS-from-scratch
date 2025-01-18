@@ -146,48 +146,62 @@
 // var firstName = 'Matilda';
 
 const jonas = {
-    firstName: 'Jonas',
-    year: 1991,
-    calcAge: function () {
-      // console.log(this);
-      console.log(2037 - this.year);
-  
-      // Solution 1
-      // const self = this; // self or that
-      // const isMillenial = function () {
-      //   console.log(self);
-      //   console.log(self.year >= 1981 && self.year <= 1996);
-      // };
-  
-      // Solution 2
-      const isMillenial = () => {
-        console.log(this);
-        console.log(this.year >= 1981 && this.year <= 1996);
-      };
-      isMillenial();
-    },
-  
-    greet: () => {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    // console.log(this);
+    console.log(2037 - this.year);
+
+    // Solution 1
+    // const self = this; // self or that
+    // const isMillenial = function () {
+    //   console.log(self);
+    //   console.log(self.year >= 1981 && self.year <= 1996);
+    // };
+
+    // Solution 2
+    const isMillenial = () => {
       console.log(this);
-      console.log(`Hey ${this.firstName}`);
-    },
-  };
-  jonas.greet();
-  jonas.calcAge();
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
+  },
 
-  //Object References in Practice (Shallow vs. Deep Copies)
+  greet: () => {
+    console.log(this);
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+jonas.greet();
+jonas.calcAge();
 
-  const jessica = {
-    firstName: 'jessica',
-    lastName: 'Williams',
-    age: 27
-  }
+//Object References in Practice (Shallow vs. Deep Copies)
+
+const jessica = {
+  firstName: 'jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+}
 
 
-  const marriedJessica = jessica
-  marriedJessica.lastName = 'Davis'
+const marriedJessica = jessica
+marriedJessica.lastName = 'Davis'
 
-  console.log('Before', jessica)
-  console.log('After', marriedJessica)
+console.log('Before', jessica)
+console.log('After', marriedJessica)
 
-  //we copy the reference of the object, we dont create a new one on the heap.
+//we copy the reference of the object, we dont create a new one in the heap.
+
+
+//the spread operator doesnt create new references of the arrays etc.. ( same references as the originals)
+const jessicaCopy = { ...jessica }
+
+jessicaCopy.lastName = 'Simpson'
+
+jessicaCopy.family.push('Mary')
+jessicaCopy.family.push('Jhon')
+
+
+console.log(jessica)
+console.log(jessicaCopy)
