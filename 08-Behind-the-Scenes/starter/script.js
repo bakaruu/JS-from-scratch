@@ -195,6 +195,8 @@ console.log('After', marriedJessica)
 
 
 //the spread operator doesnt create new references of the arrays etc.. ( same references as the originals)
+
+//Shallow copy - Copia superficial
 const jessicaCopy = { ...jessica }
 
 jessicaCopy.lastName = 'Simpson'
@@ -205,3 +207,12 @@ jessicaCopy.family.push('Jhon')
 
 console.log(jessica)
 console.log(jessicaCopy)
+
+
+//Deep copy/clone
+const jessicaClone = structuredClone(jessica)
+jessicaClone.family.push('Mary')
+jessicaClone.family.push('Jhon')
+
+console.log('Before', jessica)
+console.log('After', jessicaClone)
