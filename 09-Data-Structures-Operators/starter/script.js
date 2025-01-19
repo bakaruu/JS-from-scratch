@@ -29,15 +29,15 @@ const restaurant = {
 };
 
 
-const arr =[2, 3, 4];
+// const arr = [2, 3, 4];
 
-const a = arr[0]
-const b = arr[1]
-const c = arr[2]
+// const a = arr[0]
+// const b = arr[1]
+// const c = arr[2]
 
-//this here is destructuring an array.
-const [x, y, z] = arr
-console.log(x, y, z)
+// //this here is destructuring an array.
+// const [x, y, z] = arr
+// console.log(x, y, z)
 
 
 // const [first, second] = restaurant.categories
@@ -45,5 +45,18 @@ console.log(x, y, z)
 
 
 //if we want to take just 1st and 3rd do this.
-const [first, , second] = restaurant.categories
-console.log(first, second)
+
+let [main, , secondary] = restaurant.categories;
+console.log(main, secondary);
+console.log(restaurant.categories);
+
+//switch main and secondary category.
+// const temp = main
+// main = secondary
+// secondary = temp
+
+//with destructuring
+
+[main, secondary] = [secondary, main];
+console.log(main, secondary);
+
