@@ -216,3 +216,14 @@ jessicaClone.family.push('Jhon')
 
 console.log('Before', jessica)
 console.log('After', jessicaClone)
+
+
+// Memory management: gargabe collection:
+
+// Mark and sweep algorithm
+
+// Mark: Mark all objects that are reachable from a root as alive 
+
+// Sweep: Delete un-marked ( unreachable) objects and reclaim memory for future allocations.
+
+//Memory leak: When objects that are no longer needed are incorrectly still reachable, and therefore not being garbage collected
