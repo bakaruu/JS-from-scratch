@@ -48,10 +48,15 @@ console.log(menu, starters)
 //mutating variables while destructuring objects.
 let a = 111;
 let b = 999;
+let c = 2
 const obj = { a: 23, b: 7, c: 14 };
 
 ({ a, b } = obj)
 console.log(a, b)
+
+//nested objects
+const { fri: { open, close } } = openingHours
+console.log(open, close)
 
 
 // // const arr = [2, 3, 4];
