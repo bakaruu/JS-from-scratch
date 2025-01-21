@@ -13,8 +13,20 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
   order: function (starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
+    return [this.starterMenu[starterIndex],
+    this.mainMenu[mainIndex]]
   },
+
+  orderDelivery: function (obj) {
+    console.log(`Order received! ${this.starterMenu[obj.mainIndex]} and ${this.mainMenu[obj.starterIndex]}, will be delivered to ${obj.address} at ${obj.time}` );
+  },
+
+  //destructuring
+  orderDelivery: function ({starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
+    console.log(`Order received! ${this.starterMenu[mainIndex]} and ${this.mainMenu[starterIndex]}, will be delivered to ${address} at ${time}` );
+  },
+
+
 
   openingHours: {
     thu: {
@@ -31,6 +43,13 @@ const restaurant = {
     },
   },
 };
+
+restaurant.orderDelivery({ time: '22:30', address: 'Via del sole, 21', mainIndex: 2, starterIndex: 2, })
+
+restaurant.orderDelivery({
+  address: 'Dr. Oloriz', 
+  starterIndex: 1
+})
 
 
 //Destructuring objects
