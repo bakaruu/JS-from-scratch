@@ -61,6 +61,10 @@ console.log(...newArr) // same as console.log(1,2,5,6,7)
 const newMenu = [...restaurant.mainMenu, 'Gnocci'] //this is a new array from scratch
 console.log(newMenu)
 
+// Copia los valores: El operador ... hace una copia superficial de los elementos del array original.
+// Si los elementos del array son primitivos (como strings, números, etc.), se copian completamente y son independientes.
+// Si los elementos son objetos o arrays anidados, solo se copia la referencia. Esto significa que si cambias un objeto dentro de newMenu, también se verá reflejado en restaurant.mainMenu.
+
 
 // restaurant.orderDelivery({ time: '22:30', address: 'Via del sole, 21', mainIndex: 2, starterIndex: 2, })
 
