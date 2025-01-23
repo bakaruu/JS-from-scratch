@@ -50,64 +50,75 @@ const restaurant = {
 };
 
 // Rest pattern
+
 // The Rest Pattern in JavaScript is used to collect multiple elements and condense them into a single variable. It's often used when working with arrays or objects, and it’s closely related to the Spread Operator (...). However, while the spread operator expands elements, the rest pattern collects elements.
 
-//Spread operator
+const arr = [1, 2, ...[3, 4]];
 
-//bad example
-const arr = [5, 6, 7];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+const [a, b, ...others] = [1, 2, 3, 4, 5];
 
-//good example with spread operator.
-const newArr = [1, 2, ...arr];
-console.log(newArr)
+console.log(a, b, others)
 
-console.log(...newArr) // same as console.log(1,2,5,6,7)
+//only one rest operator in any destructuring assignment.
+const [pizza, , rissoto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza, rissoto, otherFood)
+
+// //Spread operator
+
+// //bad example
+// const arr = [5, 6, 7];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
+
+// //good example with spread operator.
+// const newArr = [1, 2, ...arr];
+// console.log(newArr)
+
+// console.log(...newArr) // same as console.log(1,2,5,6,7)
 
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'] //this is a new array from scratch
-console.log(newMenu)
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'] //this is a new array from scratch
+// console.log(newMenu)
 
-// Copia los valores: El operador ... hace una copia superficial de los elementos del array original.
-// Si los elementos del array son primitivos (como strings, números, etc.), se copian completamente y son independientes.
-// Si los elementos son objetos o arrays anidados, solo se copia la referencia. Esto significa que si cambias un objeto dentro de newMenu, también se verá reflejado en restaurant.mainMenu.
+// // Copia los valores: El operador ... hace una copia superficial de los elementos del array original.
+// // Si los elementos del array son primitivos (como strings, números, etc.), se copian completamente y son independientes.
+// // Si los elementos son objetos o arrays anidados, solo se copia la referencia. Esto significa que si cambias un objeto dentro de newMenu, también se verá reflejado en restaurant.mainMenu.
 
-//Copy array
-const mainMenuCopy = [...restaurant.mainMenu];
+// //Copy array
+// const mainMenuCopy = [...restaurant.mainMenu];
 
-//Join 2 arrys
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu]
-console.log(menu)
+// //Join 2 arrys
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu]
+// console.log(menu)
 
-//iterables: arrays, strings, maps, sets, NOT objects.
-const str = 'Jonas'
-const letters = [...str]
-console.log(letters)
+// //iterables: arrays, strings, maps, sets, NOT objects.
+// const str = 'Jonas'
+// const letters = [...str]
+// console.log(letters)
 
-const ingredients = [
-  // prompt("Let's make pasta! Ingredient 1?"),
-  // prompt("Ingredient 2?"),
-  // prompt("Ingredient 3?"),
-];
+// const ingredients = [
+//   // prompt("Let's make pasta! Ingredient 1?"),
+//   // prompt("Ingredient 2?"),
+//   // prompt("Ingredient 3?"),
+// ];
 
-console.log(ingredients)
-//without spread operator vs
-restaurant.orderPasta(ingredients[0],ingredients[1], ingredients[2] )
+// console.log(ingredients)
+// //without spread operator vs
+// restaurant.orderPasta(ingredients[0],ingredients[1], ingredients[2] )
 
-//with spread operator.
-restaurant.orderPasta(...ingredients)
+// //with spread operator.
+// restaurant.orderPasta(...ingredients)
 
-//spread operators since 2018 also works on objetcs even though objects are not ierables.
+// //spread operators since 2018 also works on objetcs even though objects are not ierables.
 
-//Objects, shallow copies with objects.
-const newRestaurant = {...restaurant, founder: 'Guiseppe'}
-console.log(newRestaurant)
+// //Objects, shallow copies with objects.
+// const newRestaurant = {...restaurant, founder: 'Guiseppe'}
+// console.log(newRestaurant)
 
-const restaurantCopy = {...restaurant};
-restaurantCopy.name = 'lololololol'
-console.log(restaurant.name);
-console.log(restaurantCopy.name);
+// const restaurantCopy = {...restaurant};
+// restaurantCopy.name = 'lololololol'
+// console.log(restaurant.name);
+// console.log(restaurantCopy.name);
 
 
 
