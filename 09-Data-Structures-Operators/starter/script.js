@@ -31,6 +31,12 @@ const restaurant = {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`)
   },
 
+  orderPizza: function(mainIngredient, ...otherIngredients){
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+    
+  },
+
 
 
   openingHours: {
@@ -83,6 +89,9 @@ add(2, 3, 3, 4)
 
 const x = [23, 5, 7];
 add(...x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach')
+restaurant.orderPizza('mushrooms')
 
 // //Spread operator
 
