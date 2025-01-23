@@ -49,6 +49,9 @@ const restaurant = {
   },
 };
 
+// Rest pattern
+// The Rest Pattern in JavaScript is used to collect multiple elements and condense them into a single variable. It's often used when working with arrays or objects, and it’s closely related to the Spread Operator (...). However, while the spread operator expands elements, the rest pattern collects elements.
+
 //Spread operator
 
 //bad example
