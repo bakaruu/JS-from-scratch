@@ -65,6 +65,21 @@ console.log(newMenu)
 // Si los elementos del array son primitivos (como strings, números, etc.), se copian completamente y son independientes.
 // Si los elementos son objetos o arrays anidados, solo se copia la referencia. Esto significa que si cambias un objeto dentro de newMenu, también se verá reflejado en restaurant.mainMenu.
 
+//Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+//Join 2 arrys
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu]
+console.log(menu)
+
+//iterables: arrays, strings, maps, sets, NOT objects.
+const str = 'Jonas'
+const letters = [...str]
+console.log(letters)
+
+
+
+
 
 // restaurant.orderDelivery({ time: '22:30', address: 'Via del sole, 21', mainIndex: 2, starterIndex: 2, })
 
