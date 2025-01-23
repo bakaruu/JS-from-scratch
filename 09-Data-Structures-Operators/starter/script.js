@@ -18,12 +18,17 @@ const restaurant = {
   },
 
   orderDelivery: function (obj) {
-    console.log(`Order received! ${this.starterMenu[obj.mainIndex]} and ${this.mainMenu[obj.starterIndex]}, will be delivered to ${obj.address} at ${obj.time}` );
+    console.log(`Order received! ${this.starterMenu[obj.mainIndex]} and ${this.mainMenu[obj.starterIndex]}, will be delivered to ${obj.address} at ${obj.time}`);
   },
 
   //destructuring
-  orderDelivery: function ({starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
-    console.log(`Order received! ${this.starterMenu[mainIndex]} and ${this.mainMenu[starterIndex]}, will be delivered to ${address} at ${time}` );
+  orderDelivery: function ({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+    console.log(`Order received! ${this.starterMenu[mainIndex]} and ${this.mainMenu[starterIndex]}, will be delivered to ${address} at ${time}`);
+  },
+
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`)
   },
 
 
@@ -76,6 +81,31 @@ console.log(menu)
 const str = 'Jonas'
 const letters = [...str]
 console.log(letters)
+
+const ingredients = [
+  // prompt("Let's make pasta! Ingredient 1?"),
+  // prompt("Ingredient 2?"),
+  // prompt("Ingredient 3?"),
+];
+
+console.log(ingredients)
+//without spread operator vs
+restaurant.orderPasta(ingredients[0],ingredients[1], ingredients[2] )
+
+//with spread operator.
+restaurant.orderPasta(...ingredients)
+
+//spread operators since 2018 also works on objetcs even though objects are not ierables.
+
+//Objects, shallow copies with objects.
+const newRestaurant = {...restaurant, founder: 'Guiseppe'}
+console.log(newRestaurant)
+
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'lololololol'
+console.log(restaurant.name);
+console.log(restaurantCopy.name);
+
 
 
 
