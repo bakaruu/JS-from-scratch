@@ -31,10 +31,10 @@ const restaurant = {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`)
   },
 
-  orderPizza: function(mainIngredient, ...otherIngredients){
+  orderPizza: function (mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
-    
+
   },
 
 
@@ -55,43 +55,55 @@ const restaurant = {
   },
 };
 
-// Rest pattern
+// SHORT CIRCUITING
 
-// The Rest Pattern in JavaScript is used to collect multiple elements and condense them into a single variable. It's often used when working with arrays or objects, and it’s closely related to the Spread Operator (...). However, while the spread operator expands elements, the rest pattern collects elements.
+// Use ANY data type, return ANY data type, short-circuiting
+console.log(2 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
 
-// SPREAD, because on Right side of =
-const arr = [1, 2, ...[3, 4]];
-
-// REST, because on LEFT side of =
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others)
-
-//only one rest operator in any destructuring assignment.
-const [pizza, , rissoto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(pizza, rissoto, otherFood)
+//from left to right return first truthy value
+console.log(undefined || 0  || '' || 'Hello' || 23 || null);
 
 
-//REST pattern in Objects
-const { sat, ...weekDays } = restaurant.openingHours;
-console.log(sat, weekDays)
+// // Rest pattern
 
-// FUNCTIONS
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++)
-    sum += numbers[i];
+// // The Rest Pattern in JavaScript is used to collect multiple elements and condense them into a single variable. It's often used when working with arrays or objects, and it’s closely related to the Spread Operator (...). However, while the spread operator expands elements, the rest pattern collects elements.
 
-  console.log(sum)
-}
-add(2, 3)
-add(3, 6, 3)
-add(2, 3, 3, 4)
+// // SPREAD, because on Right side of =
+// const arr = [1, 2, ...[3, 4]];
 
-const x = [23, 5, 7];
-add(...x);
+// // REST, because on LEFT side of =
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others)
 
-restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach')
-restaurant.orderPizza('mushrooms')
+// //only one rest operator in any destructuring assignment.
+// const [pizza, , rissoto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(pizza, rissoto, otherFood)
+
+
+// //REST pattern in Objects
+// const { sat, ...weekDays } = restaurant.openingHours;
+// console.log(sat, weekDays)
+
+// // FUNCTIONS
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++)
+//     sum += numbers[i];
+
+//   console.log(sum)
+// }
+// add(2, 3)
+// add(3, 6, 3)
+// add(2, 3, 3, 4)
+
+// const x = [23, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach')
+// restaurant.orderPizza('mushrooms')
 
 // //Spread operator
 
