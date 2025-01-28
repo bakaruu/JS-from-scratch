@@ -55,15 +55,33 @@ const restaurant = {
   },
 };
 
+
+
+const rest1 = {
+  name: 'Capri',
+  numGuests: 20,
+};
+
+const rest2 = {
+  name: 'La piazza',
+  owner: 'Giovanni Rossi',
+};
+
+rest1.numGuests = rest1.numGuests || 10;
+rest2.numGuests = rest2.numGuests || 10;
+
+console.log(rest1);
+console.log(rest2);
+
 //Nullish coalescing
 // restaurant.numGuest = 0;
-const guest2 = restaurant.numGuest || 10;
-console.log(guest2)
+// const guest2 = restaurant.numGuest || 10;
+// console.log(guest2)
 
 
-//Nullish: null and undefined  (NOT - or '')
-const guestCorrect = restaurant.numGuest ?? 10;
-console.log(guestCorrect)
+// //Nullish: null and undefined  (NOT - or '')
+// const guestCorrect = restaurant.numGuest ?? 10;
+// console.log(guestCorrect)
 
 
 // // SHORT CIRCUITING
