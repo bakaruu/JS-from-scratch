@@ -57,9 +57,14 @@ const restaurant = {
 
 
 
+// The OR assignment operator (||=) does not work like the nullish assignment operator (??=) because it treats 0 as a falsy value
+
+//Assign a value to a variable if it is currently truthy
+
 const rest1 = {
   name: 'Capri',
-  numGuests: 20,
+  // numGuests: 20,
+  numGuests: 0,
 };
 
 const rest2 = {
@@ -67,8 +72,23 @@ const rest2 = {
   owner: 'Giovanni Rossi',
 };
 
-rest1.numGuests = rest1.numGuests || 10;
-rest2.numGuests = rest2.numGuests || 10;
+//OR assignment operator.
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+//same as this up here.
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+//Nullish assignment operator.
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
 
 console.log(rest1);
 console.log(rest2);
