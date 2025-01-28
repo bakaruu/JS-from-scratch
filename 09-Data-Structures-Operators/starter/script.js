@@ -58,6 +58,8 @@ const restaurant = {
 // SHORT CIRCUITING
 
 // Use ANY data type, return ANY data type, short-circuiting
+
+console.log('------ OR ------')
 console.log(2 || 'Jonas');
 console.log('' || 'Jonas');
 console.log(true || 0);
@@ -65,6 +67,33 @@ console.log(undefined || null);
 
 //from left to right return first truthy value
 console.log(undefined || 0  || '' || 'Hello' || 23 || null);
+
+//numGuest going to be 23 if we declare it otherwise 10
+// restaurant.numGuest = 23; //if this is 0, wont work
+const guest1 = restaurant.numGuest ? restaurant.numGuest : 10;
+console.log(guest1)
+
+const guest2 = restaurant.numGuest || 10;
+console.log(guest2)
+
+console.log('------ AND ------');
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+
+
+console.log('Hello' && 23 && null && 'Jonas');
+
+//practical example
+if(restaurant.orderPizza){
+  restaurant.orderPizza('mushrooms', 'spinach')
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach') //hard to read.
+
+
+
+
+
 
 
 // // Rest pattern
