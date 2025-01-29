@@ -57,41 +57,150 @@ const restaurant = {
 
 
 
+///////////////////////////////////////
+// Coding Challenge #1
+
+// /* 
+// We're building a football betting app (soccer for my American friends 😅)!
+
+// Suppose we get data from a web service about a certain game (below). In this challenge we're gonna work with the data. So here are your tasks:
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
+    'Hummels'],
+  date: 'Nov 9th, 2037',
+
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+// 1. Create one player array for each team (variables 'players1' and 'players2')
+const [players1, players2] = game.players;
+console.log(players1);
+console.log(players2);
+
+// 2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
+
+//Rest operator example.
+const [gk, ...fieldPlayers] = players1;
+
+// 3. Create an array 'allPlayers' containing all players of both teams (22 players)
+
+//spread operator example.
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+// 4. During the game, Bayern Munich (team 1) used 3 substitute players. So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
+
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+
+
+// 5. Based on the game.odds object, create one variable for each odd (called 'team1', 'draw' and 'team2')
+
+const { team1, x: draw, team2 } = game.odds;
+//or
+//  const {
+//   odds: {team1, x: draw, team2},
+// } = game;
+
+console.log(team1, draw, team2);
+
+// 6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
+
+// or const printGoals = function(...players){};
+function printGoals(...players) {
+  //to print every player who scored.
+  players.forEach(player => console.log(player));
+
+  console.log(`${players.length} goals were scored in total.`);
+};
+
+printGoals(...game.scored);
+
+// 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, WITHOUT using an if/else statement or the ternary operator.
+
+
+const teams = [game.team1, game.team2];
+
+// Find the team with the lower odd
+const mostLikelyToWin = teams[team1 < team2 ? 0 : 1];
+
+console.log(`${mostLikelyToWin} is more likely to win`);
+
+
+// TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
+
+
+
 // The OR assignment operator (||=) does not work like the nullish assignment operator (??=) because it treats 0 as a falsy value
 
 //Assign a value to a variable if it is currently truthy
 
-const rest1 = {
-  name: 'Capri',
-  // numGuests: 20,
-  numGuests: 0,
-};
+// const rest1 = {
+//   name: 'Capri',
+//   // numGuests: 20,
+//   numGuests: 0,
+// };
 
-const rest2 = {
-  name: 'La piazza',
-  owner: 'Giovanni Rossi',
-};
+// const rest2 = {
+//   name: 'La piazza',
+//   owner: 'Giovanni Rossi',
+// };
 
-//OR assignment operator.
-// rest1.numGuests = rest1.numGuests || 10;
-// rest2.numGuests = rest2.numGuests || 10;
+// //OR assignment operator.
+// // rest1.numGuests = rest1.numGuests || 10;
+// // rest2.numGuests = rest2.numGuests || 10;
 
-//same as this up here.
-// rest1.numGuests ||= 10;
-// rest2.numGuests ||= 10;
+// //same as this up here.
+// // rest1.numGuests ||= 10;
+// // rest2.numGuests ||= 10;
 
-//Nullish assignment operator.
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10;
+// //Nullish assignment operator.
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
 
-// rest1.owner = rest1.owner && '<ANONYMOUS>';
-// rest2.owner = rest2.owner && '<ANONYMOUS>';
+// // rest1.owner = rest1.owner && '<ANONYMOUS>';
+// // rest2.owner = rest2.owner && '<ANONYMOUS>';
 
-rest1.owner &&= '<ANONYMOUS>';
-rest2.owner &&= '<ANONYMOUS>';
+// rest1.owner &&= '<ANONYMOUS>';
+// rest2.owner &&= '<ANONYMOUS>';
 
-console.log(rest1);
-console.log(rest2);
+// console.log(rest1);
+// console.log(rest2);
 
 //Nullish coalescing
 // restaurant.numGuest = 0;
