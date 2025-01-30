@@ -4,6 +4,28 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+//Writing object literals ES6
+
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]] {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
+
+
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -12,7 +34,13 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function (starterIndex, mainIndex) {
+  // order: function (starterIndex, mainIndex) {
+  //   return [this.starterMenu[starterIndex],
+  //   this.mainMenu[mainIndex]]
+  // },
+
+  //After ES6 2nd enhance object literals.
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex],
     this.mainMenu[mainIndex]]
   },
@@ -37,46 +65,57 @@ const restaurant = {
 
   },
 
+  //before ES6 enhance object literals.
+  //same name, kinda a problem but not.
+  // openingHours: openingHours,
 
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  //After ES6 1st enhance object literals.
+  openingHours,
+
+  // openingHours: {
+  //   thu: {
+  //     open: 12,
+  //     close: 22,
+  //   },
+  //   fri: {
+  //     open: 11,
+  //     close: 23,
+  //   },
+  //   sat: {
+  //     open: 0, // Open 24 hours
+  //     close: 24,
+  //   },
+  // },
 };
 
+
+
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 //Looping over arrays FOR-0F LOOP
 //we can still use the continue and break keywords.
 
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-for (const item of menu) console.log(item);
+// for (const item of menu) console.log(item);
 
-//old school ways
-// for (const item of menu.entries()) {
-//   console.log(`${item[0] + 1}: ${item[1]}`)
+// //old school ways
+// // for (const item of menu.entries()) {
+// //   console.log(`${item[0] + 1}: ${item[1]}`)
+// // }
+
+// //with destructuring way.
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`)
 // }
 
-//with destructuring way.
-for (const [i, el] of menu.entries()) {
-  console.log(`${i + 1}: ${el}`)
-}
-
-//contains an array with the index position and the element in the original array.
-console.log([...menu.entries()])
+// //contains an array with the index position and the element in the original array.
+// console.log([...menu.entries()])
 
 
 
+///////////////////////////////////////
 ///////////////////////////////////////
 // Coding Challenge #1
 
