@@ -55,6 +55,26 @@ const restaurant = {
   },
 };
 
+//Looping over arrays FOR-0F LOOP
+//we can still use the continue and break keywords.
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+//old school ways
+// for (const item of menu.entries()) {
+//   console.log(`${item[0] + 1}: ${item[1]}`)
+// }
+
+//with destructuring way.
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`)
+}
+
+//contains an array with the index position and the element in the original array.
+console.log([...menu.entries()])
+
 
 
 ///////////////////////////////////////
@@ -65,101 +85,101 @@ const restaurant = {
 
 // Suppose we get data from a web service about a certain game (below). In this challenge we're gonna work with the data. So here are your tasks:
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
-    'Hummels'],
-  date: 'Nov 9th, 2037',
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
+//     'Hummels'],
+//   date: 'Nov 9th, 2037',
 
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-// 1. Create one player array for each team (variables 'players1' and 'players2')
-const [players1, players2] = game.players;
-console.log(players1);
-console.log(players2);
+// // 1. Create one player array for each team (variables 'players1' and 'players2')
+// const [players1, players2] = game.players;
+// console.log(players1);
+// console.log(players2);
 
-// 2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
+// // 2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
 
-//Rest operator example.
-const [gk, ...fieldPlayers] = players1;
+// //Rest operator example.
+// const [gk, ...fieldPlayers] = players1;
 
-// 3. Create an array 'allPlayers' containing all players of both teams (22 players)
+// // 3. Create an array 'allPlayers' containing all players of both teams (22 players)
 
-//spread operator example.
-const allPlayers = [...players1, ...players2];
-console.log(allPlayers);
+// //spread operator example.
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
 
-// 4. During the game, Bayern Munich (team 1) used 3 substitute players. So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
+// // 4. During the game, Bayern Munich (team 1) used 3 substitute players. So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
 
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-
-
-// 5. Based on the game.odds object, create one variable for each odd (called 'team1', 'draw' and 'team2')
-
-const { team1, x: draw, team2 } = game.odds;
-//or
-//  const {
-//   odds: {team1, x: draw, team2},
-// } = game;
-
-console.log(team1, draw, team2);
-
-// 6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
-
-// or const printGoals = function(...players){};
-function printGoals(...players) {
-  //to print every player who scored.
-  players.forEach(player => console.log(player));
-
-  console.log(`${players.length} goals were scored in total.`);
-};
-
-printGoals(...game.scored);
-
-// 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, WITHOUT using an if/else statement or the ternary operator.
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 
 
-const teams = [game.team1, game.team2];
+// // 5. Based on the game.odds object, create one variable for each odd (called 'team1', 'draw' and 'team2')
 
-// Find the team with the lower odd
-const mostLikelyToWin = teams[team1 < team2 ? 0 : 1];
+// const { team1, x: draw, team2 } = game.odds;
+// //or
+// //  const {
+// //   odds: {team1, x: draw, team2},
+// // } = game;
 
-console.log(`${mostLikelyToWin} is more likely to win`);
+// console.log(team1, draw, team2);
+
+// // 6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
+
+// // or const printGoals = function(...players){};
+// function printGoals(...players) {
+//   //to print every player who scored.
+//   players.forEach(player => console.log(player));
+
+//   console.log(`${players.length} goals were scored in total.`);
+// };
+
+// printGoals(...game.scored);
+
+// // 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, WITHOUT using an if/else statement or the ternary operator.
+
+
+// const teams = [game.team1, game.team2];
+
+// // Find the team with the lower odd
+// const mostLikelyToWin = teams[team1 < team2 ? 0 : 1];
+
+// console.log(`${mostLikelyToWin} is more likely to win`);
 
 
 // TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
