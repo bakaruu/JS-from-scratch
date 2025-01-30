@@ -88,49 +88,84 @@ const restaurant = {
   //   },
   // },
 };
-//////////////////////////////////////////////////////
-//////////////////////////////////////////////////////
-//OPTIONAL CHAINING (?.)
-if (restaurant.openingHours && restaurant.openingHours.mon)
-  console.log(restaurant.openingHours.mon.open);
 
-// console.log(restaurant.openingHours.mon.open); //throws an error cause does not exist.
 
-//with optional chaining
-console.log(restaurant.openingHours.mon?.open);
-console.log(restaurant.openingHours?.mon?.open); //prevents bugs.
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
 
-// restaurant.openingHours.mon:
-// If restaurant.openingHours exists but mon is undefined (e.g., the restaurant is closed on Mondays), accessing .open without optional chaining would cause an error.
+// Looping Objects: Object Keys, Values, and Entries
+const properties = Object.keys(openingHours);
+console.log(properties);
+let openStr = (`We are open on ${properties.length} days: `)
 
-// restaurant.openingHours.mon?.open:
-// If mon exists, it returns mon.open.
-// If mon is undefined or null, it immediately returns undefined instead of throwing an error.
+// for (const day of Object.keys(openingHours)) {
+//   console.log(day)
+// }
 
-//Example.
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of properties) {
+  openStr += `${day}, `
+}
+console.log(openStr);
 
-for (const day of days) {
-  const open = restaurant.openingHours[day]?.open ?? 'Closed';
-  console.log(`On ${day}, we open at ${open}`);
+//Propery VALUES
+
+const values = Object.values(openingHours);
+console.log(values);
+
+//Entire object
+const entries = Object.entries(openingHours);
+// console.log(entries);
+
+for ( const [key, {open, close}] of entries ){
+  console.log(`On ${key} we open at ${open} and close at ${close}`)
 }
 
-//Methods, we can check if methods actually exist before calling em.
 
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exist.')
-console.log(restaurant.orderRissotto?.(0, 1) ?? 'Method does not exist.')
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
 
-//Arrays is empty?
-const users = [{name: 'Jonas', enamil: 'hello@jonas.com'}];
-// const users = [];
+//OPTIONAL CHAINING (?.)
+
+// if (restaurant.openingHours && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
+
+// // console.log(restaurant.openingHours.mon.open); //throws an error cause does not exist.
+
+// //with optional chaining
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours?.mon?.open); //prevents bugs.
+
+// // restaurant.openingHours.mon:
+// // If restaurant.openingHours exists but mon is undefined (e.g., the restaurant is closed on Mondays), accessing .open without optional chaining would cause an error.
+
+// // restaurant.openingHours.mon?.open:
+// // If mon exists, it returns mon.open.
+// // If mon is undefined or null, it immediately returns undefined instead of throwing an error.
+
+// //Example.
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'Closed';
+//   console.log(`On ${day}, we open at ${open}`);
+// }
+
+// //Methods, we can check if methods actually exist before calling em.
+
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist.')
+// console.log(restaurant.orderRissotto?.(0, 1) ?? 'Method does not exist.')
+
+// //Arrays is empty?
+// const users = [{name: 'Jonas', enamil: 'hello@jonas.com'}];
+// // const users = [];
 
 
-//with optional chaining
-console.log(users[0]?.name ?? 'User array empty.');
+// //with optional chaining
+// console.log(users[0]?.name ?? 'User array empty.');
 
-//old version.
-if(users.length > 0) console.log(users[0].name);
-else console.log('User array empty.')
+// //old version.
+// if(users.length > 0) console.log(users[0].name);
+// else console.log('User array empty.')
 
 
 
