@@ -13,7 +13,7 @@ const openingHours = {
     open: 12,
     close: 22,
   },
-  [weekdays[4]] {
+  [weekdays[4]]: {
     open: 11,
     close: 23,
   },
@@ -88,6 +88,49 @@ const restaurant = {
   //   },
   // },
 };
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//OPTIONAL CHAINING (?.)
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// console.log(restaurant.openingHours.mon.open); //throws an error cause does not exist.
+
+//with optional chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open); //prevents bugs.
+
+// restaurant.openingHours.mon:
+// If restaurant.openingHours exists but mon is undefined (e.g., the restaurant is closed on Mondays), accessing .open without optional chaining would cause an error.
+
+// restaurant.openingHours.mon?.open:
+// If mon exists, it returns mon.open.
+// If mon is undefined or null, it immediately returns undefined instead of throwing an error.
+
+//Example.
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'Closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+//Methods, we can check if methods actually exist before calling em.
+
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist.')
+console.log(restaurant.orderRissotto?.(0, 1) ?? 'Method does not exist.')
+
+//Arrays is empty?
+const users = [{name: 'Jonas', enamil: 'hello@jonas.com'}];
+// const users = [];
+
+
+//with optional chaining
+console.log(users[0]?.name ?? 'User array empty.');
+
+//old version.
+if(users.length > 0) console.log(users[0].name);
+else console.log('User array empty.')
 
 
 
