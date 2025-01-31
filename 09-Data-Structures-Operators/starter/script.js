@@ -6,6 +6,17 @@ const flights =
 
 //Writing object literals ES6
 
+//Extra challenge
+
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '🔴' : ''} ${type.replaceAll('_', ' ')} from ${from.slice(0, 3).toUpperCase()} to ${to.slice(0, 3).toUpperCase()} (${time})`.trim();
+  
+  console.log(output);
+}
+
+
 
 
 
