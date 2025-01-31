@@ -95,49 +95,88 @@ const restaurant = {
 
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
+// MAPS ITERATIONS
+
+const question = new Map ([
+  ['question', 'What is the best programming language in the world.'],
+  [1, 'C'],
+  [2, 'java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct ⚽'],
+  [false, 'Try again!'],
+
+]);
+console.log(question);
+
+//same structure when calling Object.entries.
+console.log(Object.entries(openingHours));
+
+//theres an easy way to convert from objects to maps.
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+//ITERATIONS
+for (const [key, value] of question){
+  if (typeof key === 'number') console.log(`Answer: ${key}: ${value}`)
+}
+
+console.log(question.get('question'));
+// const answer = Number(prompt('Your answer: '));
+const answer = 3;
+
+console.log(question.get(question.get('correct') === answer));
+
+//To convert Map to array
+console.log(...question);
+console.log(...question.entries());
+console.log(...question.values());
+
+
 // MAPS
- const rest = new Map();
- rest.set('name', 'Classico Italiano');
- rest.set(1, 'Firenze, Italy');
+
+//  const rest = new Map();
+//  rest.set('name', 'Classico Italiano');
+//  rest.set(1, 'Firenze, Italy');
  
- console.log(rest.set(2, 'Lisbon, Portugal'));
+//  console.log(rest.set(2, 'Lisbon, Portugal'));
 
 
- rest
-  .set('categories', ['Italian', 'Pizzeria', 
-    'Vegetarian', 'Organica'])
-  .set('open', 11)
-  .set('close', 23)
-  .set(true, 'We are open.')
-  .set(false, 'We are closed.');
+//  rest
+//   .set('categories', ['Italian', 'Pizzeria', 
+//     'Vegetarian', 'Organica'])
+//   .set('open', 11)
+//   .set('close', 23)
+//   .set(true, 'We are open.')
+//   .set(false, 'We are closed.');
 
-console.log(rest);
-console.log(rest.get('name'));
+// console.log(rest);
+// console.log(rest.get('name'));
 
-//ways of getting the value without the key.
-for (const [key, value] of rest) {
-  if (value === 'Classico Italiano') {
-    console.log(`Key for value "Classico Italiano" is: ${key}`);
-  }
-};
+// //ways of getting the value without the key.
+// for (const [key, value] of rest) {
+//   if (value === 'Classico Italiano') {
+//     console.log(`Key for value "Classico Italiano" is: ${key}`);
+//   }
+// };
 
 
-const time = 11;
-console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+// const time = 11;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
-console.log(rest.has('categories'));
-rest.delete(2);
-// rest.clear();
-// rest.set([1, 2], 'Test');
+// console.log(rest.has('categories'));
+// rest.delete(2);
+// // rest.clear();
+// // rest.set([1, 2], 'Test');
 
-console.log(rest);
+// console.log(rest);
 
-console.log(rest.get([1, 2])); // not working cause not the same reference for the array, are 2 different arrays.
+// console.log(rest.get([1, 2])); // not working cause not the same reference for the array, are 2 different arrays.
 
-// const arr = [1, 2];
-//then console.log(rest.get([arr])) output: "Test";
-rest.set(document.querySelector('h1'), 'Heading');
-console.log(rest);
+// // const arr = [1, 2];
+// //then console.log(rest.get([arr])) output: "Test";
+// rest.set(document.querySelector('h1'), 'Heading');
+// console.log(rest);
 
 
 
