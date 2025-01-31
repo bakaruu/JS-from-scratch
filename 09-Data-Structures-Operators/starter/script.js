@@ -134,6 +134,7 @@ document.body.append(document.createElement('button'));
 document.querySelector('button').addEventListener('click', function () {
   const text = document.querySelector('textarea').value;
   const lines = text.split('\n'); // split input by new lines
+  console.log(lines);
  
   for (const [i, line] of lines.entries()) {
     // trim spaces, convert to lowercase, and split at underscore
