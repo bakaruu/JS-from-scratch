@@ -6,6 +6,10 @@ const flights =
 
 //Writing object literals ES6
 
+
+
+
+
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const openingHours = {
@@ -92,63 +96,115 @@ const restaurant = {
 ////////////////////////////////////////////////////
 //SETS
 
+const italianFoods = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil'
+]);
+
+const mexicanFoods = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic'
+]);
+
+//for latest browsers ES2025
+
+//intersection method.
+const commonFoods = italianFoods.intersection(mexicanFoods);
+console.log('Intersection: ', commonFoods);
+console.log([...commonFoods]);
+
+//union method.
+const italianMexicanFusion = italianFoods.union(mexicanFoods);
+console.log('Union: ', italianMexicanFusion);
+
+console.log(new Set([...italianFoods, ...mexicanFoods]));
+// if we want an array
+console.log([...new Set([...italianFoods, ...mexicanFoods])]);
 
 
-const orderSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
+// The method Set.prototype.difference(setB) returns a new Set containing elements that are in the first set (this), but not in the second set (setB).
 
-// A Set in JavaScript is a built-in data structure that only stores unique values. When you create a Set, it automatically removes any duplicate entries.
-console.log(orderSet);
-console.log(new Set ('Jonas'));
+const uniqueItalianFood = italianFoods.difference(mexicanFoods);
+console.log('Difference italian', uniqueItalianFood);
 
-//If we need to count how uniques  characters or items
-console.log(orderSet.size);
-
-//Check if something is inside of it.
-console.log(orderSet.has('Pizza'));
-console.log(orderSet.has('Bread'));
-
-//add new elements to a set ( only one, cause can't have repeated items.)
-orderSet.add('Garlic bread');
-orderSet.add('Garlic bread');
-console.log(orderSet);
-
-//delete elements. ( not in arrays.)
-orderSet.delete('Risotto');
-
-//delete everything from the set.
-// orderSet.clear();
+const uniqueMexicanFoods = mexicanFoods.difference(italianFoods);
+console.log('Difference mexican', uniqueMexicanFoods);
 
 
-//In sets theres no indexes, we can't take info out of a set.
+//returns a new Set containing elements that are in either of the two sets, but NOT in both.
+const uniqueItalianAndMexicanFoods = italianFoods.symmetricDifference(mexicanFoods);
+console.log(uniqueItalianAndMexicanFoods);
 
-//SET USE CASES.
-//1. Removing duplicates from an array ( most common use case)
-const numbers = [1, 2, 3, 3, 4, 4, 5, 6, 6, 7];
-const uniqueNumbers = [...new Set(numbers)];
-console.log(uniqueNumbers); // [1, 2, 3, 4, 5, 6, 7]
-
-//2. Checking if a value exist ( faster than in an array)
-const userRoles = new Set(['admin', 'editor', 'viewer']);
-console.log(userRoles.has('admin')); // true
-console.log(userRoles.has('superadmin')); // false
-
-//3. Storing Unique Values Efficiently
-const usedUsernames = new Set();
-usedUsernames.add('JohnDoe');
-usedUsernames.add('JaneSmith');
-usedUsernames.add('JohnDoe'); // Won't be added again
-console.log(usedUsernames); // Set { 'JohnDoe', 'JaneSmith' }
+console.log(italianFoods.isDisjointFrom(mexicanFoods));
 
 
-//4. Iterating Over Unique Values
-const letters = new Set('hello'); // {'h', 'e', 'l', 'o'}
-for (const letter of letters) {
-  console.log(letter); // h, e, l, o
-}
-//5. Converting a Set to an Array for Indexed Access
-const mySet = new Set(['apple', 'banana', 'orange']);
-const myArray = [...mySet]; // Convert to Array
-console.log(myArray[1]); // "banana"
+
+
+
+
+// const orderSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
+
+// // A Set in JavaScript is a built-in data structure that only stores unique values. When you create a Set, it automatically removes any duplicate entries.
+// console.log(orderSet);
+// console.log(new Set ('Jonas'));
+
+// //If we need to count how uniques  characters or items
+// console.log(orderSet.size);
+
+// //Check if something is inside of it.
+// console.log(orderSet.has('Pizza'));
+// console.log(orderSet.has('Bread'));
+
+// //add new elements to a set ( only one, cause can't have repeated items.)
+// orderSet.add('Garlic bread');
+// orderSet.add('Garlic bread');
+// console.log(orderSet);
+
+// //delete elements. ( not in arrays.)
+// orderSet.delete('Risotto');
+
+// //delete everything from the set.
+// // orderSet.clear();
+
+
+// //In sets theres no indexes, we can't take info out of a set.
+
+// //SET USE CASES.
+// //1. Removing duplicates from an array ( most common use case)
+// const numbers = [1, 2, 3, 3, 4, 4, 5, 6, 6, 7];
+// const uniqueNumbers = [...new Set(numbers)];
+// console.log(uniqueNumbers); // [1, 2, 3, 4, 5, 6, 7]
+
+// //2. Checking if a value exist ( faster than in an array)
+// const userRoles = new Set(['admin', 'editor', 'viewer']);
+// console.log(userRoles.has('admin')); // true
+// console.log(userRoles.has('superadmin')); // false
+
+// //3. Storing Unique Values Efficiently
+// const usedUsernames = new Set();
+// usedUsernames.add('JohnDoe');
+// usedUsernames.add('JaneSmith');
+// usedUsernames.add('JohnDoe'); // Won't be added again
+// console.log(usedUsernames); // Set { 'JohnDoe', 'JaneSmith' }
+
+
+// //4. Iterating Over Unique Values
+// const letters = new Set('hello'); // {'h', 'e', 'l', 'o'}
+// for (const letter of letters) {
+//   console.log(letter); // h, e, l, o
+// }
+// //5. Converting a Set to an Array for Indexed Access
+// const mySet = new Set(['apple', 'banana', 'orange']);
+// const myArray = [...mySet]; // Convert to Array
+// console.log(myArray[1]); // "banana"
 
 
 ////////////////////////////////////////////////////
