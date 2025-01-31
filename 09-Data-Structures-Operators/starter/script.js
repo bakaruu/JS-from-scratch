@@ -92,40 +92,100 @@ const restaurant = {
   //   },
   // },
 };
+
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+// Working with Strings part3.
+
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schmedtmann'.split(' '));
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+console.log(firstName, lastName);
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ')
+// string of Mr Jonas Schemdtmann.
+console.log(newName);
+
+const capitalizeName = function(name){
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for(const n of names){
+  //  namesUpper.push( n[0].toUpperCase() + n.slice(1)); //if n is empty = undefined = error =)
+
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+    //If n starts with a special character, number, or whitespace, n[0] will still be replaced, which might not always be the expected behavior.
+    // If n[0] appears multiple times in the string, only the first occurrence is changed.
+
+  }
+
+  console.log(namesUpper.join(' '))
+
+}
+
+capitalizeName('jessica ann smith davis');
+capitalizeName('jonas schmedtmann');
+
+
+//Padding 
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(36, '+'));
+console.log('Jonas'.padStart(25, '+'));
+
+//Hidding credit cards number example.
+const maskCreditCard = function(number){
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+
+}
+
+console.log(maskCreditCard(332323542346346564));
+console.log(maskCreditCard('23423554745754654678'));
+
+
+//Repeat
+const message2 = 'Bad weather... All departues delayed';
+console.log(message2.repeat(4))
+
+
+
+
+
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 // Working with Strings part2.
-const airline = 'TAP Air Portugal';
-console.log(airline.toLowerCase());
-console.log(airline.toUpperCase());
+// const airline = 'TAP Air Portugal';
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
 
-//fix capitalization in name
-const passenger = 'jOnAS'; // Jonas
-const passengerLower = passenger.toLowerCase();
-const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// //fix capitalization in name
+// const passenger = 'jOnAS'; // Jonas
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
 
-console.log(passengerCorrect);
+// console.log(passengerCorrect);
 
-//comparing Emails.
-const email = 'hello@jonas.com';
-const loginEmail = 'Hello@Jonas.com \n';
+// //comparing Emails.
+// const email = 'hello@jonas.com';
+// const loginEmail = 'Hello@Jonas.com \n';
 
-// const lowerEmail = loginEmail.toLowerCase();
-// const trimmedEmail = lowerEmail.trim(); //trimm white spaces.
+// // const lowerEmail = loginEmail.toLowerCase();
+// // const trimmedEmail = lowerEmail.trim(); //trimm white spaces.
 
-const normalizedEmail = loginEmail.toLowerCase().trim();
-console.log(normalizedEmail);
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
 
-//replacing
-const priceGB = '289,23₤';
-const priceUS = priceGB.replace('₤','$').replace(',', '.');
-console.log(priceUS);
+// //replacing
+// const priceGB = '289,23₤';
+// const priceUS = priceGB.replace('₤','$').replace(',', '.');
+// console.log(priceUS);
 
-//Booleans
-const plane = 'A320neo';
-console.log(plane.includes('A320'));
-console.log(plane.includes('Boeing'));
-console.log(plane.startsWith('Air'));
+// //Booleans
+// const plane = 'A320neo';
+// console.log(plane.includes('A320'));
+// console.log(plane.includes('Boeing'));
+// console.log(plane.startsWith('Air'));
 
 
 // Working with Strings part1.
