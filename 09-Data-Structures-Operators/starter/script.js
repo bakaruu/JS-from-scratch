@@ -92,58 +92,107 @@ const restaurant = {
   //   },
   // },
 };
+
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+// MAPS
+ const rest = new Map();
+ rest.set('name', 'Classico Italiano');
+ rest.set(1, 'Firenze, Italy');
+ 
+ console.log(rest.set(2, 'Lisbon, Portugal'));
+
+
+ rest
+  .set('categories', ['Italian', 'Pizzeria', 
+    'Vegetarian', 'Organica'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open.')
+  .set(false, 'We are closed.');
+
+console.log(rest);
+console.log(rest.get('name'));
+
+//ways of getting the value without the key.
+for (const [key, value] of rest) {
+  if (value === 'Classico Italiano') {
+    console.log(`Key for value "Classico Italiano" is: ${key}`);
+  }
+};
+
+
+const time = 11;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+// rest.clear();
+// rest.set([1, 2], 'Test');
+
+console.log(rest);
+
+console.log(rest.get([1, 2])); // not working cause not the same reference for the array, are 2 different arrays.
+
+// const arr = [1, 2];
+//then console.log(rest.get([arr])) output: "Test";
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+
+
+
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 //SETS
 
-const italianFoods = new Set([
-  'pasta',
-  'gnocchi',
-  'tomatoes',
-  'olive oil',
-  'garlic',
-  'basil'
-]);
+// const italianFoods = new Set([
+//   'pasta',
+//   'gnocchi',
+//   'tomatoes',
+//   'olive oil',
+//   'garlic',
+//   'basil'
+// ]);
 
-const mexicanFoods = new Set([
-  'tortillas',
-  'beans',
-  'rice',
-  'tomatoes',
-  'avocado',
-  'garlic'
-]);
+// const mexicanFoods = new Set([
+//   'tortillas',
+//   'beans',
+//   'rice',
+//   'tomatoes',
+//   'avocado',
+//   'garlic'
+// ]);
 
-//for latest browsers ES2025
+// //for latest browsers ES2025
 
-//intersection method.
-const commonFoods = italianFoods.intersection(mexicanFoods);
-console.log('Intersection: ', commonFoods);
-console.log([...commonFoods]);
+// //intersection method.
+// const commonFoods = italianFoods.intersection(mexicanFoods);
+// console.log('Intersection: ', commonFoods);
+// console.log([...commonFoods]);
 
-//union method.
-const italianMexicanFusion = italianFoods.union(mexicanFoods);
-console.log('Union: ', italianMexicanFusion);
+// //union method.
+// const italianMexicanFusion = italianFoods.union(mexicanFoods);
+// console.log('Union: ', italianMexicanFusion);
 
-console.log(new Set([...italianFoods, ...mexicanFoods]));
-// if we want an array
-console.log([...new Set([...italianFoods, ...mexicanFoods])]);
-
-
-// The method Set.prototype.difference(setB) returns a new Set containing elements that are in the first set (this), but not in the second set (setB).
-
-const uniqueItalianFood = italianFoods.difference(mexicanFoods);
-console.log('Difference italian', uniqueItalianFood);
-
-const uniqueMexicanFoods = mexicanFoods.difference(italianFoods);
-console.log('Difference mexican', uniqueMexicanFoods);
+// console.log(new Set([...italianFoods, ...mexicanFoods]));
+// // if we want an array
+// console.log([...new Set([...italianFoods, ...mexicanFoods])]);
 
 
-//returns a new Set containing elements that are in either of the two sets, but NOT in both.
-const uniqueItalianAndMexicanFoods = italianFoods.symmetricDifference(mexicanFoods);
-console.log(uniqueItalianAndMexicanFoods);
+// // The method Set.prototype.difference(setB) returns a new Set containing elements that are in the first set (this), but not in the second set (setB).
 
-console.log(italianFoods.isDisjointFrom(mexicanFoods));
+// const uniqueItalianFood = italianFoods.difference(mexicanFoods);
+// console.log('Difference italian', uniqueItalianFood);
+
+// const uniqueMexicanFoods = mexicanFoods.difference(italianFoods);
+// console.log('Difference mexican', uniqueMexicanFoods);
+
+
+// //returns a new Set containing elements that are in either of the two sets, but NOT in both.
+// const uniqueItalianAndMexicanFoods = italianFoods.symmetricDifference(mexicanFoods);
+// console.log(uniqueItalianAndMexicanFoods);
+
+// console.log(italianFoods.isDisjointFrom(mexicanFoods));
 
 
 
