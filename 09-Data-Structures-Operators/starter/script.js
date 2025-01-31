@@ -95,58 +95,114 @@ const restaurant = {
 
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
+// Coding Challenge #4
+
+
+// Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+// The input will come from a textarea inserted into the DOM (see code below to insert the elements), and conversion will happen when the button is pressed.
+
+// Test data (pasted to textarea, including spaces):
+
+// underscore_case
+//  first_name
+// Some_Variable
+//  calculate_AGE
+// delayed_departure
+
+
+// Should produce this output (5 separate console.log outputs):
+
+// underscoreCase ✅
+// firstName ✅✅
+// someVariable ✅✅✅
+// calculateAge ✅✅✅✅
+// delayedDeparture ✅✅✅✅✅
+
+
+// Hints:
+// § Remember which character defines a new line in the textarea �
+// § The solution only needs to work for a variable made out of 2 words, like a_b
+// § Start without worrying about the ✅. Tackle that only after you have the variable name conversion working �
+// § This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
+
+// Afterwards, test with your own test data!
+// GOOD LUCK �
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const lines = text.split('\n'); // split input by new lines
+ 
+  for (const [i, line] of lines.entries()) {
+    // trim spaces, convert to lowercase, and split at underscore
+    const [first, second] = line.trim().toLowerCase().split('_');
+
+    // convert to camelCase
+    const camelCase = first + second.replace(second[0], second[0].toUpperCase());
+
+    // add checkmarks based on index (1, 2, 3, etc.)
+    console.log(`${camelCase.padEnd(20)} ${'✅'.repeat(i + 1)}`);
+  }
+});
+
+
+
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
 // Working with Strings part3.
 
-console.log('a+very+nice+string'.split('+'));
-console.log('Jonas Schmedtmann'.split(' '));
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Jonas Schmedtmann'.split(' '));
 
-const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
-console.log(firstName, lastName);
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ')
-// string of Mr Jonas Schemdtmann.
-console.log(newName);
+// const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+// console.log(firstName, lastName);
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ')
+// // string of Mr Jonas Schemdtmann.
+// console.log(newName);
 
-const capitalizeName = function(name){
-  const names = name.split(' ');
-  const namesUpper = [];
+// const capitalizeName = function(name){
+//   const names = name.split(' ');
+//   const namesUpper = [];
 
-  for(const n of names){
-  //  namesUpper.push( n[0].toUpperCase() + n.slice(1)); //if n is empty = undefined = error =)
+//   for(const n of names){
+//   //  namesUpper.push( n[0].toUpperCase() + n.slice(1)); //if n is empty = undefined = error =)
 
-    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
-    //If n starts with a special character, number, or whitespace, n[0] will still be replaced, which might not always be the expected behavior.
-    // If n[0] appears multiple times in the string, only the first occurrence is changed.
+//     namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//     //If n starts with a special character, number, or whitespace, n[0] will still be replaced, which might not always be the expected behavior.
+//     // If n[0] appears multiple times in the string, only the first occurrence is changed.
 
-  }
+//   }
 
-  console.log(namesUpper.join(' '))
+//   console.log(namesUpper.join(' '))
 
-}
+// }
 
-capitalizeName('jessica ann smith davis');
-capitalizeName('jonas schmedtmann');
-
-
-//Padding 
-const message = 'Go to gate 23!';
-console.log(message.padStart(25, '+').padEnd(36, '+'));
-console.log('Jonas'.padStart(25, '+'));
-
-//Hidding credit cards number example.
-const maskCreditCard = function(number){
-  const str = number + '';
-  const last = str.slice(-4);
-  return last.padStart(str.length, '*');
-
-}
-
-console.log(maskCreditCard(332323542346346564));
-console.log(maskCreditCard('23423554745754654678'));
+// capitalizeName('jessica ann smith davis');
+// capitalizeName('jonas schmedtmann');
 
 
-//Repeat
-const message2 = 'Bad weather... All departues delayed';
-console.log(message2.repeat(4))
+// //Padding 
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(25, '+').padEnd(36, '+'));
+// console.log('Jonas'.padStart(25, '+'));
+
+// //Hidding credit cards number example.
+// const maskCreditCard = function(number){
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, '*');
+
+// }
+
+// console.log(maskCreditCard(332323542346346564));
+// console.log(maskCreditCard('23423554745754654678'));
+
+
+// //Repeat
+// const message2 = 'Bad weather... All departues delayed';
+// console.log(message2.repeat(4))
 
 
 
