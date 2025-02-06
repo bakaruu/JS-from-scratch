@@ -1,6 +1,35 @@
 'use strict';
 
 
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+// Functions Accepting Callback Functions
+
+const oneWord = function (str){
+    return str.replace(/ /g, '').toLowerCase();
+}
+
+const upperFirstWord = function(str){
+    const [first, ...others] = str.split(' ');
+    return [first.toUpperCase(), ...others].join(' ');
+}
+
+//Higher-order function
+const transformer = function(str, fn){
+    console.log(`Original string: ${str}`)
+    console.log(`Transformed string: ${fn(str)}`);
+}
+
+transformer('JavaScript is the best!', upperFirstWord)
+
+
+
+
+
+
+
+
+
 
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
@@ -57,11 +86,11 @@ console.log(triple(5)); // 15
 
 // Example: Assigning a Function to a Variable
 
-const greet = function (name) {
-    return `Hello, ${name}!`;
-};
+// const greet = function (name) {
+//     return `Hello, ${name}!`;
+// };
 
-console.log(greet("Alice")); // Hello, Alice!
+// console.log(greet("Alice")); // Hello, Alice!
 // Here, greet is stored in a variable, just like any other value.
 
 // Example: Passing a Function as an Argument
@@ -112,6 +141,16 @@ console.log(double(5)); // 10
 
 // Higher-Order Functions = Functions that work with other functions (accept functions as arguments or return them).
 
+
+
+
+
+
+
+
+
+
+
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 // How Passing Arguments Works: Value vs. Reference
@@ -153,6 +192,15 @@ newPassport(jonas);
 
 
 
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
 //Default parameters in functions.
 // const bookings = [];
 //                                                         //ES6
