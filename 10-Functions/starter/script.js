@@ -1,130 +1,193 @@
 'use strict';
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
-// Functions Returning Functions.
+// The call and apply Methods
 
-const greet = function (greeting) {
-    return function (name) {
-        console.log(`${greeting}, ${name}`);
-    }
+const lufthansa = {
+    airline: 'Lufthansa', 
+    iataCode: 'LH', 
+    bookings: [], 
+    // book: function(){},
+    book(flightNum, name){
+        console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+        this.bookings.push({flight: `${this.iataCode}${flightNum}`, name})    
+
+    },
+    
+
 };
 
-const greeterHey = greet('Hey'); //This value here is now a function.
-console.log(greeterHey);
-console.log(greeterHey('Jonas'));
+lufthansa.book(234, 'Rufus Tiefus');
+console.log(lufthansa);
 
-//Challenge
-const greetArr = greeting => name => console.log(`${greeting}, ${name}`);
-
-//this is cause closures 
-//A closure is when a function remembers the variables from its outer scope even after the outer function has finished executing.
-
-// When is it useful to return functions in JavaScript? 🚀
-// Returning functions is a powerful pattern in JavaScript that enables functional programming, encapsulation, and reusability. Here are some key situations where returning functions is useful:
-
-// 1️⃣ Function Factories (Creating Custom Functions)
-// Returning a function allows us to create dynamic and reusable functions based on input parameters.
-
-// Example: Custom Multipliers
-
-function createMultiplier(factor) {
-    return function (number) {
-        return number * factor;
-    };
-}
-
-const double = createMultiplier(2);
-const triple = createMultiplier(3);
-
-console.log(double(5)); // 10
-console.log(triple(5)); // 15
-
-
-// ✅ Each returned function remembers the factor value, creating reusable multipliers.
-
-// 2️⃣ Closures for Data Privacy (Encapsulation)
-// Returning a function helps maintain private variables that cannot be accessed directly.
-
-// Example: Counter with Private State
-
-function createCounter() {
-    let count = 0;
+const eurowings = {
+    airline: 'Eurowings', 
+    iataCode: 'EW', 
+    bookings: [], 
+    // book: function(){},
     
-    return function () {
-        count++;
-        return count;
-    };
-}
 
-const counter = createCounter();
-console.log(counter()); // 1
-console.log(counter()); // 2
-console.log(counter()); // 3
-// ✅ count is not accessible from outside; only the returned function can modify it.
+};
 
+const book = lufthansa.book;
+
+// book(23, 'Joe, Simpsom');//this function is no longer the lufthansa method. Does not work
+
+//Using the call method.
+book.call(eurowings, 23,'Joe, Simpson');
+console.log(eurowings);
 
 
-// 3️⃣ Partial Application (Preset Arguments)
-// Returning a function enables pre-setting arguments, which makes function calls more concise.
+//Apply method, does not receive a list of arguments after the thios keyword, instead take an array of the arguments
 
-// Example: Custom Greeting Generator
-function greet(greeting) {
-    return function (name) {
-        return `${greeting}, ${name}!`;
-    };
-}
+const flightData = [583, 'George Cooper'];
+book.apply(eurowings, flightData);
+//Apply method is not used anymore in MODERN JS
 
-const sayHello = greet("Hello");
-const sayGoodbye = greet("Goodbye");
+book.call(eurowings, ...flightData);
 
-console.log(sayHello("Alice")); // "Hello, Alice!"
-console.log(sayGoodbye("Bob")); // "Goodbye, Bob!"
-// ✅ We don’t need to pass the greeting every time—just the name.
 
-// 4️⃣ Function Composition (Chaining Functions)
-// Returning functions helps combine multiple operations smoothly.
 
-// Example: Composing Functions
 
-function add(x) {
-    return function (y) {
-        return x + y;
-    };
-}
 
-const addFive = add(5);
-console.log(addFive(10)); // 15
-console.log(addFive(20)); // 25
-// ✅ The first function sets a base value, and the second function completes the operation.
 
-// 5️⃣ Custom Event Handlers
-// Returning functions is useful for event handling and callbacks.
 
-// Example: Custom Event Listener
-function createEventHandler(message) {
-    return function () {
-        console.log(`Event triggered: ${message}`);
-    };
-}
 
-const onClick = createEventHandler("Button clicked");
-document.querySelector("button").addEventListener("click", onClick);
-// ✅ The returned function remembers the message when the event happens.
 
-// 6️⃣ Delayed Execution (Deferred Functions)
-// Returning a function enables delayed execution.
 
-// Example: Delayed Execution with setTimeout
 
-function delayMessage(message, delay) {
-    return function () {
-        setTimeout(() => console.log(message), delay);
-    };
-}
 
-const delayedHello = delayMessage("Hello after 2 seconds", 2000);
-delayedHello();
-// ✅ The function is created but only executed later.
+
+
+
+
+
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+// Functions Returning Functions.
+
+// const greet = function (greeting) {
+//     return function (name) {
+//         console.log(`${greeting}, ${name}`);
+//     }
+// };
+
+// const greeterHey = greet('Hey'); //This value here is now a function.
+// console.log(greeterHey);
+// console.log(greeterHey('Jonas'));
+
+// //Challenge
+// const greetArr = greeting => name => console.log(`${greeting}, ${name}`);
+
+// //this is cause closures 
+// //A closure is when a function remembers the variables from its outer scope even after the outer function has finished executing.
+
+// // When is it useful to return functions in JavaScript? 🚀
+// // Returning functions is a powerful pattern in JavaScript that enables functional programming, encapsulation, and reusability. Here are some key situations where returning functions is useful:
+
+// // 1️⃣ Function Factories (Creating Custom Functions)
+// // Returning a function allows us to create dynamic and reusable functions based on input parameters.
+
+// // Example: Custom Multipliers
+
+// function createMultiplier(factor) {
+//     return function (number) {
+//         return number * factor;
+//     };
+// }
+
+// const double = createMultiplier(2);
+// const triple = createMultiplier(3);
+
+// console.log(double(5)); // 10
+// console.log(triple(5)); // 15
+
+
+// // ✅ Each returned function remembers the factor value, creating reusable multipliers.
+
+// // 2️⃣ Closures for Data Privacy (Encapsulation)
+// // Returning a function helps maintain private variables that cannot be accessed directly.
+
+// // Example: Counter with Private State
+
+// function createCounter() {
+//     let count = 0;
+    
+//     return function () {
+//         count++;
+//         return count;
+//     };
+// }
+
+// const counter = createCounter();
+// console.log(counter()); // 1
+// console.log(counter()); // 2
+// console.log(counter()); // 3
+// // ✅ count is not accessible from outside; only the returned function can modify it.
+
+
+
+// // 3️⃣ Partial Application (Preset Arguments)
+// // Returning a function enables pre-setting arguments, which makes function calls more concise.
+
+// // Example: Custom Greeting Generator
+// function greet(greeting) {
+//     return function (name) {
+//         return `${greeting}, ${name}!`;
+//     };
+// }
+
+// const sayHello = greet("Hello");
+// const sayGoodbye = greet("Goodbye");
+
+// console.log(sayHello("Alice")); // "Hello, Alice!"
+// console.log(sayGoodbye("Bob")); // "Goodbye, Bob!"
+// // ✅ We don’t need to pass the greeting every time—just the name.
+
+// // 4️⃣ Function Composition (Chaining Functions)
+// // Returning functions helps combine multiple operations smoothly.
+
+// // Example: Composing Functions
+
+// function add(x) {
+//     return function (y) {
+//         return x + y;
+//     };
+// }
+
+// const addFive = add(5);
+// console.log(addFive(10)); // 15
+// console.log(addFive(20)); // 25
+// // ✅ The first function sets a base value, and the second function completes the operation.
+
+// // 5️⃣ Custom Event Handlers
+// // Returning functions is useful for event handling and callbacks.
+
+// // Example: Custom Event Listener
+// function createEventHandler(message) {
+//     return function () {
+//         console.log(`Event triggered: ${message}`);
+//     };
+// }
+
+// const onClick = createEventHandler("Button clicked");
+// document.querySelector("button").addEventListener("click", onClick);
+// // ✅ The returned function remembers the message when the event happens.
+
+// // 6️⃣ Delayed Execution (Deferred Functions)
+// // Returning a function enables delayed execution.
+
+// // Example: Delayed Execution with setTimeout
+
+// function delayMessage(message, delay) {
+//     return function () {
+//         setTimeout(() => console.log(message), delay);
+//     };
+// }
+
+// const delayedHello = delayMessage("Hello after 2 seconds", 2000);
+// delayedHello();
+// // ✅ The function is created but only executed later.
 
 
 
