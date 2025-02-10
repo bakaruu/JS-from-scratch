@@ -1,4 +1,5 @@
 'use strict';
+
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 // The call and apply Methods
@@ -47,6 +48,71 @@ book.apply(eurowings, flightData);
 book.call(eurowings, ...flightData);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+// The Bind Method
+
+// .bind() is a method that creates a new function with a preset this value and optionally pre-filled arguments. Unlike .call() and .apply(), .bind() does not execute the function immediately—instead, it returns a new function that can be called later
+
+const bookEW = book.bind(eurowings);// 'this' is permanently set to 'eurowings'
+const bookLH = book.bind(lufthansa);
+bookEW(23, 'Steven Williams');
+
+                                    //Pre-defined
+const bookEW23 = book.bind(eurowings, 23);
+//we only need the name
+bookEW23('Joe Cooper');
+
+//With Event Listeners
+
+lufthansa.planes = 300;
+lufthansa.buyPlane = function(){
+    console.log(this);
+
+    this.planes++;
+    console.log(this.planes);
+};
+
+// When you pass lufthansa.buyPlane directly as a callback to .addEventListener(), this inside buyPlane no longer refers to lufthansa, but instead to the element that triggered the event (the button itself).
+
+// By default, in an event listener:
+
+// this refers to the DOM element that triggered the event (in this case, the .buy button).
+// So when buyPlane runs, this is not lufthansa, but the button.
+
+document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+//Another alternative fix
+document.querySelector('.buy').addEventListener('click', () => lufthansa.buyPlane());
+
+//Partial application: we can preset values
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.10, 200));
+                    // we dont care about this keyword, we use null
+const addVAT = addTax.bind(null, 0.23);
+console.log(addVAT(100));
+
+//const addTax = rate => value => value + value * rate;
+
+// const addVAT = addTax(0.23);
+
+// console.log(addVAT(100)); // 123
+// console.log(addVAT(200)); // 246
 
 
 
